@@ -75,3 +75,4 @@
 *.pidb
 *.sbo
 *.db
+/UserSettings
