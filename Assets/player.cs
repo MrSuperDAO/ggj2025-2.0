@@ -18,9 +18,9 @@ public class player : MonoBehaviour
     }
 
 
-=======
-    public void VoidFunction_0()
->>>>>>> c2362578adb5e3d5bc2179b877ab704fe9a75bd6
+
+    public void VoiaFunction_0()
+
     {
 
     }
