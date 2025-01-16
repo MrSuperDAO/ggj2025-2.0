@@ -5,7 +5,7 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string text = "这是一条来自时光的修改";
+    public string text = "会冲突吗";
     void Start()
     {
         
