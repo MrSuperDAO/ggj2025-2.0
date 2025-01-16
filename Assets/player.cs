@@ -6,7 +6,7 @@ public class player : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int text = 99999;
+    public float zzzz = 1.21f;
 
     void Start()
     {
