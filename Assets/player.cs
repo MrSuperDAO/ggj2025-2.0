@@ -5,7 +5,11 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     // Start is called before the first frame update
+<<<<<<< HEAD
     public int text = 2;
+=======
+    public int text = 99999;
+>>>>>>> a47136ca5d35ec33b931e530cd95a1e2683191e0
     void Start()
     {
         
@@ -19,7 +23,7 @@ public class player : MonoBehaviour
 
 
 
-    public void VoiaFunction_0()
+    public void VoiaFunction()
 
     {
 
