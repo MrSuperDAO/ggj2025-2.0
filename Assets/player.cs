@@ -16,4 +16,9 @@ public class player : MonoBehaviour
     {
         
     }
+
+    public void VoidFunction()
+    {
+
+    }
 }
