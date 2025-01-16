@@ -5,7 +5,7 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     // Start is called before the first frame update
-    public string text = "»á³åÍ»Âð";
+    public int text = 1;
     void Start()
     {
         
@@ -17,7 +17,7 @@ public class player : MonoBehaviour
         
     }
 
-    public void VoidFunction()
+    public void VoiaFunction()
     {
 
     }
