@@ -6,7 +6,7 @@ public class player : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public int text = 3;
+    public int text = 99999;
 
     void Start()
     {
