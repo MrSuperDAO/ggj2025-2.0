@@ -19,7 +19,7 @@ public class player : MonoBehaviour
 
 
 
-    public void VoiaFunction_0()
+    public void VoiaFunction()
 
     {
 
