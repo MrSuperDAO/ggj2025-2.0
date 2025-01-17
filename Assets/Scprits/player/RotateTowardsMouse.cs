@@ -5,7 +5,7 @@ public class RotateTowardsMouse : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    public float moveSpeed=1112f;
+    public float moveSpeed=12f;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,5 +50,17 @@ public class RotateTowardsMouse : MonoBehaviour
 
         Vector2 forceDirection = (mousePosition - weaponPosition).normalized;// 计算推力方向
         rb.AddForce(-forceDirection* 10f, ForceMode2D.Impulse);// 施加反向推力
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
     }
 }
