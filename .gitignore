@@ -60,7 +60,6 @@
 *.DS_Store
 *.meta
 *.csproj
-*.unitypackage
 *.dll
 *.exe
 *.pdb
