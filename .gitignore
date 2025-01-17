@@ -12,7 +12,6 @@
 *.sln
 *.userprefs
 *.DS_Store
-*.meta
 *.csproj
 *.unitypackage
 *.dll
@@ -36,7 +35,6 @@
 *.sln
 *.userprefs
 *.DS_Store
-*.meta
 *.csproj
 *.unitypackage
 *.dll
