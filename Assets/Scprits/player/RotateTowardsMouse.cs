@@ -232,7 +232,6 @@ public class RotateTowardsMouse : MonoBehaviour
                         prefabName= "StrongBubblePrefab";
                         bubblePrefab = StrongBubblePrefab;
                         break;
-                    case "NonRespawnBubble":
                     //添加其他的泡泡类型
                     default:
                         Debug.LogError("未知的泡泡类型: " + bubbleLayerName);

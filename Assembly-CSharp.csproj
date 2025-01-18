@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scprits\Score\StarInteract.cs" />
     <Compile Include="Assets\Scprits\UI\UImanager.cs" />
     <Compile Include="Assets\Scprits\Menu\Menu.cs" />
+    <Compile Include="Assets\Scprits\player\jump.cs" />
     <Compile Include="Assets\Scprits\UI_Script\GamePopup.cs" />
     <Compile Include="Assets\Scprits\Score\ScoreManager.cs" />
     <Compile Include="Assets\Scprits\player\BubbleTypeComponent.cs" />
@@ -68,7 +69,6 @@
     <Compile Include="Assets\Scprits\UI_Script\SceneChange.cs" />
     <Compile Include="Assets\Scprits\interaction\GameOverColliton.cs" />
     <Compile Include="Assets\Scprits\player\BubbleTypes.cs" />
-    <Compile Include="Assets\Scprits\player\jump.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
