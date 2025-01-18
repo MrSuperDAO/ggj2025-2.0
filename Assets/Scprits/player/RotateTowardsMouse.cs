@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.Media;
+﻿using UnityEditor.Media;
 using UnityEngine;
 
 public class RotateTowardsMouse : MonoBehaviour
@@ -13,7 +11,6 @@ public class RotateTowardsMouse : MonoBehaviour
     public float lowJumpMultiplier;
     public float jumpDuration ;
     public float FallMultiplier;
-    public float decelerationRate;
 
     private Rigidbody2D rb;
     public float moveSpeed = 12f;
@@ -31,13 +28,6 @@ public class RotateTowardsMouse : MonoBehaviour
     public LayerMask strongBubbleLayer;//强力
     public LayerMask nonRespawnBubbleLayer;//不可再生
     public LayerMask pushableBubbleLayer;//可被吹动
-    [Header("泡泡预制体")]
-    public GameObject NormalBubblePrefab;
-    public GameObject StrongBubblePrefab;
-    #region 泡泡字典
-    //添加数据字典存放被戳破的泡泡
-    private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
-    #endregion
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -47,24 +37,21 @@ public class RotateTowardsMouse : MonoBehaviour
             Debug.LogError("针(针)未找到在玩家对象上！");
         }
     }
-
+    
     private void Update()
     {
         RotateNeedle();
         CheckPunctureBubble();
-        
         if (Input.GetMouseButtonDown(0) && currentBubble != null)
         {
             PunctureBubble();
         }
-        playerMove();
-
+       
     }
-
 
     void FixedUpdate()
     {
-
+        
         float elapsedTime = Time.time - jumpStartTime;
 
         // 如果跳跃持续时间未结束，则应用缓动效果
@@ -73,33 +60,25 @@ public class RotateTowardsMouse : MonoBehaviour
             float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
             rb.velocity += Vector2.up * velocityModifier;
         }
-        else if (rb.velocity.y < 0)
+        else if (rb.velocity.y <0)
         {
             // 跳跃上升结束，下落进行减速，缓缓下落
             rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
-        if (rb.velocity.x != 0)
-        {
-            float decelerationAmount = Mathf.Abs(rb.velocity.x) * decelerationRate * Time.fixedDeltaTime;
 
-            if (rb.velocity.x > 0)
-            {
-                rb.velocity = new Vector2(Mathf.Max(0, rb.velocity.x - decelerationAmount), rb.velocity.y);
-            }
-            else if (rb.velocity.x < 0)
-            {
-                rb.velocity = new Vector2(Mathf.Min(0, rb.velocity.x + decelerationAmount), rb.velocity.y);
-            }
-        }
-
-        // 设置一个阈值，当速度小于这个阈值时直接将其设置为0
-        float speedThreshold = 0.01f; // 你可以根据需要调整这个值
-        if (Mathf.Abs(rb.velocity.x) < speedThreshold)
+/*        if (rb.velocity.x > 0)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+            rb.velocity += Vector2.up * velocityModifier;
         }
+        else if (rb.velocity.x < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+
+        }*/
     }
+
     private void RotateNeedle()
     {
         // 将鼠标屏幕位置转换为世界位置
@@ -122,7 +101,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void CheckPunctureBubble()
     {
-        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.2f); // 使用小半径检测针尖是否接触泡泡
+        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.1f); // 使用小半径检测针尖是否接触泡泡
         if (collider != null)
         {
             currentBubble = collider.gameObject;
@@ -137,12 +116,11 @@ public class RotateTowardsMouse : MonoBehaviour
         }
     }
 
-    float jumpForceMagnitude ; // 默认跳跃力
+
     private void PunctureBubble()
     {
-
         bool respawn = true; // 默认泡泡是可重生的
-        jumpForceMagnitude = jumpForce;
+        float jumpForceMagnitude = jumpForce; // 默认跳跃力
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
@@ -165,6 +143,10 @@ public class RotateTowardsMouse : MonoBehaviour
             // 可被其他泡泡爆破推动的泡泡（这里可能需要额外的逻辑来处理推动效果）
             // 例如，可以设置一个触发器来检测其他泡泡的爆破并应用力
         }
+        Vector2 jumpDirection = (needle.position - transform.position).normalized;
+        Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
+        // 应用跳跃冲力
+        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
 
         if (!respawn)//判断是否为一次性
         {
@@ -176,47 +158,48 @@ public class RotateTowardsMouse : MonoBehaviour
             bubblePunctureTime = Time.time;
             currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
         }
-        puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
 
-        //currentBubble = null; // 重置当前泡泡（可能不需要，出问题可以看看一这里）
+        currentBubble = null; // 重置当前泡泡
         // 设置跳跃状态为true，并记录跳跃开始时间
         isJumping = true;
         jumpStartTime = Time.time;
-
     }
 
-    public float jumpBufferTimer;
-    public float jumpBuffer;
-    public GameObject GroundCollider;
-
-    public void playerMove()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetMouseButtonDown(0) && currentBubble != null)
-        {
-            jumpBufferTimer = jumpBuffer;
-            if (jumpBufferTimer > 0)
-            {
-                if (GroundCollider.GetComponent<jump>().OnGround)//倒计时结束前如果
-                {
-                    rb.velocity = new Vector2(0,0);
-                    Vector2 jumpDirection = (needle.position - transform.position).normalized;
-                    Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
-                                                                           // 应用跳跃冲力
-                    rb.AddForce(-JumpForce, ForceMode2D.Impulse);
-                    jumpBufferTimer = 0;//如果跳跃了，则把倒计时归零，等待下一次按下空格
-                }
-                jumpBufferTimer--;//如果没有跳跃，则一直倒计时直至结束或者按下跳跃键
-            }
-        }
-
-
+        // 如果泡泡重生逻辑需要在这里处理（比如通过触发器重生），可以添加相关代码
+        // 但通常重生逻辑会在Update中根据bubblePunctureTime和bubbleRespawnTime来处理
     }
+
+    /*private void LateUpdate()
+    {
+        // 检查是否需要重生泡泡
+        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
+        {
+            // 重生泡泡（获取泡泡预设体，并且在原始位置重生的）
+            GameObject bubblePrefab = Resources.Load<GameObject>("Prefabs/BubblePrefab"); // 根据资源路径调整
+            if (bubblePrefab != null)
+            {
+                Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
+            }
+
+            isBubblePunctured = false;
+            // 如果泡泡对象被禁用了，这里可以重新启用它
+            // currentBubble.SetActive(true);
+
+            // 重置currentBubble，因为我们已经重生了一个新的泡泡
+            currentBubble = null;
+        }
+    }*/
     private void LateUpdate()
     {
-        // 遍历被戳破的泡泡字典
-        foreach (var bubble in puncturedBubbles.ToArray())
+        // 检查是否需要重生泡泡
+        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
         {
-            if (Time.time - bubble.Value > bubbleRespawnTime)
+            // 根据泡泡类型加载预设体
+            GameObject bubblePrefab = null;
+            string prefabPath = "Prefabs/";
+            switch (LayerMask.LayerToName(currentBubble.layer))
             {
                 // 根据泡泡类型加载预设体
                 GameObject bubblePrefab = null;
@@ -251,6 +234,34 @@ public class RotateTowardsMouse : MonoBehaviour
                 // 从字典中移除已处理的泡泡
                 puncturedBubbles.Remove(bubble.Key);
             }
+
+            bubblePrefab = Resources.Load<GameObject>(prefabPath);
+            if (bubblePrefab == null)
+            {
+                Debug.LogError("无法加载泡泡预设体: " + prefabPath);
+                return;
+            }
+
+            // 重生泡泡
+            GameObject newBubble = Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
+            // 重置泡泡状态（如果需要的话）
+            // newBubble.GetComponent<BubbleBehaviour>().ResetState(); // 假设BubbleBehaviour是泡泡的脚本组件
+
+            // 重置当前泡泡和状态
+            isBubblePunctured = false;
+            currentBubble = null;
         }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+      
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
     }
 }
