@@ -2265,6 +2265,7 @@ GameObject:
   - component: {fileID: 1119737962}
   - component: {fileID: 1119737961}
   - component: {fileID: 1119737960}
+  - component: {fileID: 1119737963}
   m_Layer: 6
   m_Name: "\u5730\u9762"
   m_TagString: Untagged
@@ -2342,7 +2343,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 324976957
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -3586,6 +3587,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1119737963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119737958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d93f42c970cbd294c8e72699d98bad70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubbleType: 0
 --- !u!1 &1175223117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5321,11 +5335,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.7184
       objectReference: {fileID: 0}
     - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5556
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9223
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0104
       objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069681, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_RootOrder
@@ -5381,11 +5403,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: jumpForce
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: jumpDuration
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: normalBubbleLayer.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}

@@ -3,17 +3,31 @@ using UnityEngine;
 
 public class RotateTowardsMouse : MonoBehaviour
 {
+    public bool isOnGround;
+    public bool isJumping;
+    public bool isFalling;
+    private float jumpStartTime;
+
+    public float lowJumpMultiplier;
+    public float jumpDuration ;
+    public float FallMultiplier;
+
     private Rigidbody2D rb;
     public float moveSpeed = 12f;
     public float needleRadius = 2f; // 针围绕玩家的固定半径
     public float jumpForce;//设置跳跃力度
-    public LayerMask bubbleLayer; // 用于检测泡泡的Layer
     public float bubbleRespawnTime = 3f; // 泡泡重生时间
     private Transform needle; // 针的Transform组件
     private GameObject currentBubble; // 当前被针接触的泡泡
     private bool isBubblePunctured = false; // 标记泡泡是否被戳破
     private float bubblePunctureTime; // 记录戳破泡泡的时间
 
+    [Header("泡泡类型")]
+    public LayerMask bubbleLayer; // 用于检测泡泡的Layer
+    public LayerMask normalBubbleLayer;//普通
+    public LayerMask strongBubbleLayer;//强力
+    public LayerMask nonRespawnBubbleLayer;//不可再生
+    public LayerMask pushableBubbleLayer;//可被吹动
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -75,7 +89,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void CheckPunctureBubble()
     {
-        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.1f, bubbleLayer); // 使用小半径检测针尖是否接触泡泡
+        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.1f); // 使用小半径检测针尖是否接触泡泡
         if (collider != null)
         {
             currentBubble = collider.gameObject;
@@ -90,35 +104,53 @@ public class RotateTowardsMouse : MonoBehaviour
         }
     }
 
-    public bool isOnGround;
-    public bool isJumping;
-    public bool isFalling;
-    private float jumpStartTime;
-
-    public float lowJumpMultiplier;
-    public float jumpDuration ;
-    public float FallMultiplier;
 
     private void PunctureBubble()
     {
-        //Destroy(currentBubble); // 销毁泡泡
+        bool respawn = true; // 默认泡泡是可重生的
+        float jumpForceMagnitude = jumpForce; // 默认跳跃力
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
-        // 计算跳跃方向
+        if (LayerMask.LayerToName(currentBubble.layer) == "NormalBubble")
+        {
+            // 常规泡泡
+        }
+        else if (LayerMask.LayerToName(currentBubble.layer) == "StrongBubble")
+        {
+            // 强力泡泡，增加跳跃力
+            jumpForceMagnitude *= 2f; // 例如，跳跃力加倍
+        }
+        else if (LayerMask.LayerToName(currentBubble.layer) == "NonRespawnBubble")
+        {
+            // 不可重生泡泡
+            respawn = false;
+        }
+        else if (LayerMask.LayerToName(currentBubble.layer) == "PushableBubble")
+        {
+            // 可被其他泡泡爆破推动的泡泡（这里可能需要额外的逻辑来处理推动效果）
+            // 例如，可以设置一个触发器来检测其他泡泡的爆破并应用力
+        }
         Vector2 jumpDirection = (needle.position - transform.position).normalized;
+        Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
         // 应用跳跃冲力
-        rb.AddForce(- jumpDirection * jumpForce, ForceMode2D.Impulse);
+        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
+
+        if (!respawn)//判断是否为一次性
+        {
+            Destroy(currentBubble);
+        }
+        else
+        {
+            isBubblePunctured = true;
+            bubblePunctureTime = Time.time;
+            currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
+        }
+
+        currentBubble = null; // 重置当前泡泡
         // 设置跳跃状态为true，并记录跳跃开始时间
         isJumping = true;
         jumpStartTime = Time.time;
-
-
-        // 施加反向力使玩家跳跃
-        //Vector2 JumpForce = (needle.position - transform.position).normalized * jumpForce; // 调整力的大小和方向,
-        //rb.AddForce(-JumpForce, ForceMode2D.Impulse);
-
-        // 可以在这里添加音效等反馈
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -130,13 +162,21 @@ public class RotateTowardsMouse : MonoBehaviour
     private void LateUpdate()
     {
         // 检查是否需要重生泡泡
-        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime)
+        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
         {
-            // 这里需要实现泡泡的重生逻辑，可能是通过实例化预制件等
-            // 例如：Instantiate(bubblePrefab, bubbleSpawnPoint, Quaternion.identity);
-            // 注意：bubblePrefab和bubbleSpawnPoint需要您自行定义
+            // 重生泡泡（获取泡泡预设体，并且在原始位置重生的）
+            GameObject bubblePrefab = Resources.Load<GameObject>("Prefabs/BubblePrefab"); // 根据资源路径调整
+            if (bubblePrefab != null)
+            {
+                Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
+            }
 
-            isBubblePunctured = false; // 重置标记
+            isBubblePunctured = false;
+            // 如果泡泡对象被禁用了，这里可以重新启用它
+            // currentBubble.SetActive(true);
+
+            // 重置currentBubble，因为我们已经重生了一个新的泡泡
+            currentBubble = null;
         }
     }
 private void OnCollisionEnter2D(Collision2D collision)
