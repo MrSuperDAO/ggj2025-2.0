@@ -170,7 +170,7 @@ public class RotateTowardsMouse : MonoBehaviour
         // 但通常重生逻辑会在Update中根据bubblePunctureTime和bubbleRespawnTime来处理
     }
 
-    private void LateUpdate()
+    /*private void LateUpdate()
     {
         // 检查是否需要重生泡泡
         if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
@@ -189,8 +189,47 @@ public class RotateTowardsMouse : MonoBehaviour
             // 重置currentBubble，因为我们已经重生了一个新的泡泡
             currentBubble = null;
         }
+    }*/
+    private void LateUpdate()
+    {
+        // 检查是否需要重生泡泡
+        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
+        {
+            // 根据泡泡类型加载预设体
+            GameObject bubblePrefab = null;
+            string prefabPath = "Prefabs/";
+            switch (LayerMask.LayerToName(currentBubble.layer))
+            {
+                case "NormalBubble":
+                    prefabPath += "NormalBubblePrefab";
+                    break;
+                case "StrongBubble":
+                    prefabPath += "StrongBubblePrefab";
+                    break;
+                // 可以为其他泡泡类型添加case
+                default:
+                    Debug.LogError("未知的泡泡类型: " + LayerMask.LayerToName(currentBubble.layer));
+                    return;
+            }
+
+            bubblePrefab = Resources.Load<GameObject>(prefabPath);
+            if (bubblePrefab == null)
+            {
+                Debug.LogError("无法加载泡泡预设体: " + prefabPath);
+                return;
+            }
+
+            // 重生泡泡
+            GameObject newBubble = Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
+            // 重置泡泡状态（如果需要的话）
+            // newBubble.GetComponent<BubbleBehaviour>().ResetState(); // 假设BubbleBehaviour是泡泡的脚本组件
+
+            // 重置当前泡泡和状态
+            isBubblePunctured = false;
+            currentBubble = null;
+        }
     }
-private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
       
     }
