@@ -1,31 +1,36 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int score = 0;  // µ±Ç°·ÖÊı
-    public Text scoreText;  // ÓÃÓÚÏÔÊ¾·ÖÊıµÄText×é¼ş
-
+    public static int score = 0;  // å½“å‰åˆ†æ•°
+    public Text scoreText;  // ç”¨äºæ˜¾ç¤ºåˆ†æ•°çš„Textç»„ä»¶
+    public Text timeText;// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾Ê±ï¿½ï¿½ï¿½Textï¿½ï¿½ï¿½
     private void Start()
     {
-        // ³õÊ¼»¯·ÖÊı
-        score = 0;
+      
+    }
+
+    // æ›´æ–°åˆ†æ•°
+    private void Update()
+    {
         UpdateScoreText();
     }
 
-    // ¸üĞÂ·ÖÊı
-    public static void AddScore(int points)
-    {
-        score += points;
-        // µ÷ÓÃUpdateScoreText·½·¨¸üĞÂUI
-        FindObjectOfType<ScoreManager>().UpdateScoreText();
-    }
-
-    // ¸üĞÂUIÖĞµÄ·ÖÊıÏÔÊ¾
+    // æ›´æ–°UIä¸­çš„åˆ†æ•°æ˜¾ç¤º
     private void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        Debug.Log(DataController.Instance.time);
+        scoreText.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: " + DataController.Instance.dides;
+        timeText.text = "Ê±ï¿½ï¿½: " + DataController.Instance.time;
+    }
+    public void DideAdd()
+    {
+
+        // ï¿½ï¿½ï¿½ï¿½UpdateScoreTextï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½UI
+        FindObjectOfType<ScoreManager>().UpdateScoreText();
     }
 }
+
