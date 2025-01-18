@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GamePopup : MonoBehaviour
 {
-    public static bool isGamePaused = false;
-
+    public bool isGamePaused = false;
     public GameObject pauseMenuUI; // 暂停菜单的UI
     public GameObject deadMenuUI; // 死亡菜单的UI
     public GameObject levelEndMenuUI; // 关底菜单的UI
@@ -19,6 +19,11 @@ public class GamePopup : MonoBehaviour
         {
             TogglePause(); // 切换暂停状态
         }
+    }
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
     }
 
     /// <summary>
@@ -61,15 +66,14 @@ public class GamePopup : MonoBehaviour
 
     public void OpenDeadMenuUI()//死亡时调用，弹出重试弹窗
     {
-        Time.timeScale = 0; // 停止游戏时间
-        isGamePaused = true; // 设置游戏为暂停状态
-        deadMenuUI.SetActive(true); // 显示重试弹窗
+        //StartCoroutine(LoadCoroutine(SceneManager.GetActiveScene().name));
+        //黑屏渐入
+        
+        //deadMenuUI.SetActive(true); // 显示重试弹窗
     }
 
     public void RetryButton()//死亡时弹窗里点击重试
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        ResumeGame();
     }
 
 
@@ -89,15 +93,15 @@ public class GamePopup : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "level 1")
         {
-            SceneManager.LoadScene("level 2");
+            StartCoroutine(LoadCoroutine("level 2"));
         }
         else if (SceneManager.GetActiveScene().name == "level 2")
         {
-            SceneManager.LoadScene("level 3");
+            StartCoroutine(LoadCoroutine("level 3"));
         }
         else if (SceneManager.GetActiveScene().name == "level 3")
         {
-            SceneManager.LoadScene("level 4");
+            StartCoroutine(LoadCoroutine("level 4"));
         }
 
     }
@@ -116,4 +120,65 @@ public class GamePopup : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    [SerializeField] public Image transitionImage;
+    [SerializeField] public float fadeTime ;
+    public static Color color;
+
+    public IEnumerator LoadCoroutine(string sceneName)
+    {
+        transitionImage.gameObject.SetActive(true);//开启黑屏过场图片
+        while (color.a < 1f)//黑屏淡入
+        {
+            color.a = Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
+            transitionImage.color = color;
+            yield return null;
+        }
+        transitionImage.color = new Color(transitionImage.color.r, transitionImage.color.g, transitionImage.color.b, 1f);
+        SceneManager.LoadScene(sceneName);
+
+        transitionImage.gameObject.SetActive(false);
+        while (color.a > 0f)//如果加载完毕，黑屏淡出
+        {
+            Time.timeScale = 1f;
+            color.a = Mathf.Clamp01(color.a - Time.unscaledDeltaTime / fadeTime);
+            transitionImage.color = color;
+            Debug.Log(color.a);
+            yield return null;
+        }
+        transitionImage.gameObject.SetActive(false);
+    }
+
+    public IEnumerator TransitionInCoroutine()
+    {
+        transitionImage.gameObject.SetActive(true);//开启黑屏过场图片
+        while (color.a < 1f)//黑屏渐入
+        {
+            color.a = Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
+            transitionImage.color = color;
+            if (color.a <= 0.05f)
+            {
+                yield return null;
+            }
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(TransitionOutCoroutine());
+    }
+
+    public IEnumerator TransitionOutCoroutine()
+    {
+        while (color.a > 0f)//如果加载完毕且完全黑屏，黑屏淡出
+        {
+            if (color.a <= 0.05f)
+            {
+            }
+
+            Time.timeScale = 1f;
+            color.a = Mathf.Clamp01(color.a - Time.unscaledDeltaTime / fadeTime);
+            transitionImage.color = color;
+            yield return null;
+        }
+        transitionImage.gameObject.SetActive(false);//关闭黑屏过场图片
+    }
+
 }

@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverColliton : MonoBehaviour
 {
+    public GameObject UI;
     // Start is called before the first frame update
-    public GameObject retryButton;
+    //public GameObject retryButton;
     
     void Start()
     {
@@ -23,10 +25,11 @@ public class GameOverColliton : MonoBehaviour
         GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("失败重新再来");
-            gamePopup.PauseGame();
+            StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
+            //Debug.Log("失败重新再来");
+            //gamePopup.PauseGame();
         }
-        retryButton.SetActive(true);
+        //retryButton.SetActive(true);
 
     }
 

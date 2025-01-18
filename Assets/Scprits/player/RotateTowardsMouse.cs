@@ -61,7 +61,7 @@ public class RotateTowardsMouse : MonoBehaviour
         }
         else if (rb.velocity.y <0)
         {
-            // 跳跃上升结束，下落进行加速
+            // 跳跃上升结束，下落进行减速，缓缓下落
             rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
