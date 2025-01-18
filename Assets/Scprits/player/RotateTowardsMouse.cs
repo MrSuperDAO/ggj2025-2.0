@@ -30,7 +30,9 @@ public class RotateTowardsMouse : MonoBehaviour
     public LayerMask strongBubbleLayer;//强力
     public LayerMask nonRespawnBubbleLayer;//不可再生
     public LayerMask pushableBubbleLayer;//可被吹动
-
+    [Header("泡泡预制体")]
+    public GameObject NormalBubblePrefab;
+    public GameObject StrongBubblePrefab;
     #region 泡泡字典
     //添加数据字典存放被戳破的泡泡
     private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
@@ -57,7 +59,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+
         float elapsedTime = Time.time - jumpStartTime;
 
         // 如果跳跃持续时间未结束，则应用缓动效果
@@ -66,10 +68,10 @@ public class RotateTowardsMouse : MonoBehaviour
             float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
             rb.velocity += Vector2.up * velocityModifier;
         }
-        else if (rb.velocity.y <0)
+        else if (rb.velocity.y < 0)
         {
             // 跳跃上升结束，下落进行减速，缓缓下落
-            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier  * Time.fixedDeltaTime;//给向下的力加速下落
+            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
         if (rb.velocity.x > 0)
@@ -83,19 +85,7 @@ public class RotateTowardsMouse : MonoBehaviour
             rb.velocity += Vector2.left * Physics2D.gravity.x * lowJumpMultiplier * 10f * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
-
-        /*        if (rb.velocity.x > 0)
-                {
-                    float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
-                    rb.velocity += Vector2.up * velocityModifier;
-                }
-                else if (rb.velocity.x < 0)
-                {
-                    rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
-
-                }*/
     }
-
     private void RotateNeedle()
     {
         // 将鼠标屏幕位置转换为世界位置
@@ -132,8 +122,6 @@ public class RotateTowardsMouse : MonoBehaviour
             currentBubble = null;
         }
     }
-
-
     private void PunctureBubble()
     {
         bool respawn = true; // 默认泡泡是可重生的
@@ -161,7 +149,7 @@ public class RotateTowardsMouse : MonoBehaviour
             // 例如，可以设置一个触发器来检测其他泡泡的爆破并应用力
         }
         Vector2 jumpDirection = (needle.position - transform.position).normalized;
-        Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
+        Vector2 JumpForce = jumpDirection * jumpForceMagnitude;
         // 应用跳跃冲力
         rb.AddForce(-JumpForce, ForceMode2D.Impulse);
 
@@ -182,13 +170,6 @@ public class RotateTowardsMouse : MonoBehaviour
         isJumping = true;
         jumpStartTime = Time.time;
     }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        // 如果泡泡重生逻辑需要在这里处理（比如通过触发器重生），可以添加相关代码
-        // 但通常重生逻辑会在Update中根据bubblePunctureTime和bubbleRespawnTime来处理
-    }
-
     private void LateUpdate()
     {
         // 遍历被戳破的泡泡字典
@@ -198,45 +179,36 @@ public class RotateTowardsMouse : MonoBehaviour
             {
                 // 根据泡泡类型加载预设体
                 GameObject bubblePrefab = null;
-                string prefabPath = "Prefabs/";//这里添加预制体路径，根据我们文件的预制体文件夹来找
+                string prefabName=null;//这里添加预制体路径，根据我们文件的预制体文件夹来找
                 string bubbleLayerName = LayerMask.LayerToName(bubble.Key.layer);
                 switch (bubbleLayerName)
                 {
                     case "NormalBubble":
-                        prefabPath += "NormalBubblePrefab";//预制体的命名必须和引号内相同
+                        prefabName= "NormalBubblePrefab";//预制体的命名必须和引号内相同
+                        bubblePrefab = NormalBubblePrefab;
                         break;
                     case "StrongBubble":
-                        prefabPath += "StrongBubblePrefab";
+                        prefabName= "StrongBubblePrefab";
+                        bubblePrefab = StrongBubblePrefab;
                         break;
+                    //添加其他的泡泡类型
                     default:
                         Debug.LogError("未知的泡泡类型: " + bubbleLayerName);
                         continue;
                 }
-                bubblePrefab = Resources.Load<GameObject>(prefabPath);
+                //bubblePrefab = Resources.Load<GameObject>(prefabPath);
                 if (bubblePrefab != null)
                 {
                     Instantiate(bubblePrefab, bubble.Key.transform.position, Quaternion.identity);
                 }
                 else
                 {
-                    Debug.LogError("无法加载泡泡预设体: " + prefabPath);
+                    Debug.LogError("无法加载泡泡预设体: " + prefabName);
                 }
 
                 // 从字典中移除已处理的泡泡
                 puncturedBubbles.Remove(bubble.Key);
             }
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-      
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        
     }
 }
