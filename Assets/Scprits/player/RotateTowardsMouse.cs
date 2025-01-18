@@ -1,14 +1,12 @@
 ﻿using UnityEditor.Media;
 using UnityEngine;
 
-using UnityEditor.Media;
-using UnityEngine;
-
 public class RotateTowardsMouse : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float moveSpeed = 12f;
     public float needleRadius = 2f; // 针围绕玩家的固定半径
+    public float jumpForce;//设置跳跃力度
     public LayerMask bubbleLayer; // 用于检测泡泡的Layer
     public float bubbleRespawnTime = 3f; // 泡泡重生时间
     private Transform needle; // 针的Transform组件
@@ -30,7 +28,7 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         RotateNeedle();
         CheckPunctureBubble();
-        if (Input.GetMouseButtonDown(0) && currentBubble != null && !isBubblePunctured)
+        if (Input.GetMouseButtonDown(0) && currentBubble != null)
         {
             PunctureBubble();
         }
@@ -49,7 +47,7 @@ public class RotateTowardsMouse : MonoBehaviour
         needle.position = transform.position + direction;
 
         // 计算旋转角度
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg+90;
 
         // 设置针的旋转，使其面向鼠标位置（其实这里不需要，因为直接设置了位置）
         // 但如果为了视觉效果，可以保留或调整
@@ -75,13 +73,13 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void PunctureBubble()
     {
-        Destroy(currentBubble); // 销毁泡泡
+        //Destroy(currentBubble); // 销毁泡泡
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
         // 施加反向力使玩家跳跃
-        Vector2 jumpForce = (needle.position - transform.position).normalized * 20f; // 调整力的大小和方向,
-        rb.AddForce(-jumpForce, ForceMode2D.Impulse);
+        Vector2 JumpForce = (needle.position - transform.position).normalized * jumpForce; // 调整力的大小和方向,
+        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
 
         // 可以在这里添加音效等反馈
     }
