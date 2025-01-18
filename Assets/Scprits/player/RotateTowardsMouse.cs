@@ -175,6 +175,7 @@ public class RotateTowardsMouse : MonoBehaviour
             // 可被其他泡泡爆破推动的泡泡（这里可能需要额外的逻辑来处理推动效果）
             // 例如，可以设置一个触发器来检测其他泡泡的爆破并应用力
         }
+        else if{ return; }
 
         if (!respawn)//判断是否为一次性
         {
