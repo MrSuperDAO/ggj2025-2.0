@@ -12,7 +12,6 @@ public class UImanager : MonoBehaviour
      void Awake()
     {
         Init();
-
     }  
     public void Init()
     {

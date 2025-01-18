@@ -1,22 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamePopup : MonoBehaviour
 {
-    public static GamePopup Instance { get; private set; }
-
     public bool isGamePaused = false;
     public GameObject pauseMenuUI; // 暂停菜单的UI
     public GameObject deadMenuUI; // 死亡菜单的UI
     public GameObject levelEndMenuUI; // 关底菜单的UI
     public GameObject gameVictoryMenuUI; // 游戏通关的UI
 
-
-    
     void Update()
     {
         // 按Esc键暂停或在暂停时继续
@@ -24,20 +19,11 @@ public class GamePopup : MonoBehaviour
         {
             TogglePause(); // 切换暂停状态
         }
-       
     }
-        
+
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        DontDestroyOnLoad(this);
     }
 
     /// <summary>
@@ -108,7 +94,6 @@ public class GamePopup : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "level 1")
         {
             StartCoroutine(LoadCoroutine("level 2"));
-           
         }
         else if (SceneManager.GetActiveScene().name == "level 2")
         {
@@ -178,10 +163,6 @@ public class GamePopup : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine(TransitionOutCoroutine());
-        DataController.Instance.dides += 1; ; // 增加死亡次数
-        Destroy(this.gameObject);
-        Debug.Log("新分数: " + DataController.Instance.dides);
-       
     }
 
     public IEnumerator TransitionOutCoroutine()

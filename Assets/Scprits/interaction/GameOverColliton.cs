@@ -21,16 +21,11 @@ public class GameOverColliton : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        GameObject scoreObject = GameObject.Find("ScoreManager");
-        ScoreManager score = scoreObject.GetComponent<ScoreManager>();//获调用ScoreManager
-
         GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
-        GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();//获取 调用GamePopup
+        GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
-            score.DideAdd();
             //Debug.Log("失败重新再来");
             //gamePopup.PauseGame();
         }

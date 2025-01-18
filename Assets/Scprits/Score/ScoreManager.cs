@@ -5,37 +5,27 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
-   
-    public Text scoreText;  // 用于显示死亡数的Text组件
-    public Text timeText;// 用于显示时间的Text组件
-   
-    private void Awake()
-    {
-            
-    }
+    public static int score = 0;  // 当前分数
+    public Text scoreText;  // 用于显示分数的Text组件
+
     private void Start()
     {
         // 初始化分数
-       
-        
-    }
-    private void Update()
-    {
+        score = 0;
         UpdateScoreText();
     }
-    // 更新UI中的分数显示
-    private void UpdateScoreText()
+
+    // 更新分数
+    public static void AddScore(int points)
     {
-        Debug.Log(DataController.Instance.time);
-        scoreText.text = "死亡次数: " + DataController.Instance.dides;
-        timeText.text = "时间: " + DataController.Instance.time;
-    }
-    // 更新死亡数
-    public  void DideAdd()
-    {
-       
+        score += points;
         // 调用UpdateScoreText方法更新UI
         FindObjectOfType<ScoreManager>().UpdateScoreText();
     }
 
+    // 更新UI中的分数显示
+    private void UpdateScoreText()
+    {
+        scoreText.text = "Score: " + score;
+    }
 }
