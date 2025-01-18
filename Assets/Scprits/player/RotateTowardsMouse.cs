@@ -253,4 +253,21 @@ public class RotateTowardsMouse : MonoBehaviour
             }
         }
     }
+
+    // 用于存储最近离开的存档点
+    public GameObject lastSaveArea;
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("SaveArea"))
+        {
+            lastSaveArea = other.gameObject;
+        }
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("SaveArea"))
+        {
+            lastSaveArea = other.gameObject;
+        }
+    }
 }
