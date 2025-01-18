@@ -5319,6 +5319,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043334083521548, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069681, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5363,6 +5371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069682, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d638a9279bdc2fe45963d55b6a29f7f2, type: 3}
     - target: {fileID: 2869043335037069683, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_Name
       value: "\u89D2\u8272"
