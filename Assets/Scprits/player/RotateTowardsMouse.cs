@@ -6,6 +6,7 @@ public class RotateTowardsMouse : MonoBehaviour
     private Rigidbody2D rb;
     public float moveSpeed = 12f;
     public float needleRadius = 2f; // 针围绕玩家的固定半径
+    public float jumpForce;//设置跳跃力度
     public LayerMask bubbleLayer; // 用于检测泡泡的Layer
     public float bubbleRespawnTime = 3f; // 泡泡重生时间
     private Transform needle; // 针的Transform组件
@@ -77,8 +78,8 @@ public class RotateTowardsMouse : MonoBehaviour
         bubblePunctureTime = Time.time; // 记录戳破时间
 
         // 施加反向力使玩家跳跃
-        Vector2 jumpForce = (needle.position - transform.position).normalized * 20f; // 调整力的大小和方向,
-        rb.AddForce(-jumpForce, ForceMode2D.Impulse);
+        Vector2 JumpForce = (needle.position - transform.position).normalized * jumpForce; // 调整力的大小和方向,
+        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
 
         // 可以在这里添加音效等反馈
     }

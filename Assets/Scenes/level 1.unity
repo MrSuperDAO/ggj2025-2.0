@@ -1113,6 +1113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5000
   needleRadius: 0.5
+  jumpForce: 1
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 64
