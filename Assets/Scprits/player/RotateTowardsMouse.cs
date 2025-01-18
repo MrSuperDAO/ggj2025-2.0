@@ -34,6 +34,24 @@ public class RotateTowardsMouse : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        
+        float elapsedTime = Time.time - jumpStartTime;
+
+        // 如果跳跃持续时间未结束，则应用缓动效果
+        if (rb.velocity.y > 0)
+        {
+            float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+            rb.velocity += Vector2.up * velocityModifier;
+        }
+        else
+        {
+            // 跳跃上升结束，重置跳跃状态，下落不需要缓动
+            
+        }
+    }
+
     private void RotateNeedle()
     {
         // 将鼠标屏幕位置转换为世界位置
@@ -71,15 +89,31 @@ public class RotateTowardsMouse : MonoBehaviour
         }
     }
 
+    public bool isOnGround;
+    public bool isJumping;
+    public bool isFalling;
+    private float jumpStartTime;
+    public float lowJumpMultiplier;
+    public float jumpDuration ; 
+
     private void PunctureBubble()
     {
         //Destroy(currentBubble); // 销毁泡泡
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
+        // 计算跳跃方向
+        Vector2 jumpDirection = (needle.position - transform.position).normalized;
+        // 应用跳跃冲力
+        rb.AddForce(- jumpDirection * jumpForce, ForceMode2D.Impulse);
+        // 设置跳跃状态为true，并记录跳跃开始时间
+        isJumping = true;
+        jumpStartTime = Time.time;
+
+
         // 施加反向力使玩家跳跃
-        Vector2 JumpForce = (needle.position - transform.position).normalized * jumpForce; // 调整力的大小和方向,
-        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
+        //Vector2 JumpForce = (needle.position - transform.position).normalized * jumpForce; // 调整力的大小和方向,
+        //rb.AddForce(-JumpForce, ForceMode2D.Impulse);
 
         // 可以在这里添加音效等反馈
     }

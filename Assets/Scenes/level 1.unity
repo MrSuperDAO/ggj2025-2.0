@@ -2342,7 +2342,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 324976957
-  m_SortingLayer: 0
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
@@ -3224,10 +3224,10 @@ Tilemap:
   - first: {x: 5, y: 7, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 2
+      m_TileIndex: 0
       m_TileSpriteIndex: 0
       m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
+      m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
@@ -3523,11 +3523,11 @@ Tilemap:
       m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 089e25fbb9307d741b7abbe63a04eab5, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 1792937ebd7876144bbcbd1b559c8204, type: 2}
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data: {fileID: 11400000, guid: 03c29802b6ed9734291b037fcfbad091, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 115
@@ -3556,10 +3556,10 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 115
+  - m_RefCount: 114
     m_Data: {r: 0.38113207, g: 0.79133683, b: 1, a: 0.30588236}
-  - m_RefCount: 0
-    m_Data: {r: 3.6823e-41, g: 3.6823e-41, b: 3.6823e-41, a: 3.6823e-41}
+  - m_RefCount: 1
+    m_Data: {r: 1, g: 0.645283, b: 0.9692939, a: 0.7372549}
   - m_RefCount: 1
     m_Data: {r: 0.9811321, g: 0.4017088, b: 0.4017088, a: 0.65882355}
   m_TileObjectToInstantiateArray: []
@@ -5378,6 +5378,14 @@ PrefabInstance:
     - target: {fileID: 2869043335037069683, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_Name
       value: "\u89D2\u8272"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: jumpForce
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: jumpDuration
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
