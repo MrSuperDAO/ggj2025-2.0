@@ -34,12 +34,17 @@ public class RotateTowardsMouse : MonoBehaviour
     [Header("泡泡预制体")]
     public GameObject NormalBubblePrefab;
     public GameObject StrongBubblePrefab;
+
+    //动画相关
+    private Animator anim;
+    private bool isMoving = false;
     #region 泡泡字典
     //添加数据字典存放被戳破的泡泡
     private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
     #endregion
     private void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         needle = transform.Find("针"); // 查找针
         if (needle == null)
@@ -52,7 +57,7 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         RotateNeedle();
         CheckPunctureBubble();
-        
+        Anim();
         if (Input.GetMouseButtonDown(0) && currentBubble != null)
         {
             PunctureBubble();
@@ -60,8 +65,13 @@ public class RotateTowardsMouse : MonoBehaviour
         playerMove();
 
     }
-
-
+    private void Anim()
+    {
+        if (rb.velocity == Vector2.zero) { isMoving = false; }
+        else { isMoving = true; }
+        anim.SetBool("IsMoving", isMoving);//转换移动或静止
+        anim.SetFloat("Direction", rb.velocity.x);//跳跃的面朝方向
+    }
     void FixedUpdate()
     {
 
