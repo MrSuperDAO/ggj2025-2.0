@@ -28,7 +28,7 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         RotateNeedle();
         CheckPunctureBubble();
-        if (Input.GetMouseButtonDown(0) && currentBubble != null && !isBubblePunctured)
+        if (Input.GetMouseButtonDown(0) && currentBubble != null )
         {
             PunctureBubble();
         }
@@ -73,7 +73,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void PunctureBubble()
     {
-        Destroy(currentBubble); // 销毁泡泡
+        //Destroy(currentBubble); // 销毁泡泡
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
