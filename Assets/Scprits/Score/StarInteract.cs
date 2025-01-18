@@ -20,7 +20,9 @@ public class StarInteract : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Star +!");
+            Exitslevel1 exitslevel1 = FindObjectOfType<Exitslevel1>();
+            exitslevel1.StarAdd();
+
             Destroy(this.gameObject);
         }
     }

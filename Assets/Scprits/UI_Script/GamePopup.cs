@@ -201,6 +201,6 @@ public class GamePopup : MonoBehaviour
 
     public void setPlayerPosition()
     {
-        Player.transform.position = rotateTowardsMouse.lastSaveArea.transform.position;
+        //Player.transform.position = rotateTowardsMouse.lastSaveArea.transform.position;
     }
 }
