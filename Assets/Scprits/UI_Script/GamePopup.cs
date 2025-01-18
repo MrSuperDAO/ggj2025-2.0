@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,90 +6,101 @@ using UnityEngine.UI;
 
 public class GamePopup : MonoBehaviour
 {
+    public static GamePopup Instance { get; private set; }
+
     public bool isGamePaused = false;
-    public GameObject pauseMenuUI; // ÔİÍ£²Ëµ¥µÄUI
-    public GameObject deadMenuUI; // ËÀÍö²Ëµ¥µÄUI
-    public GameObject levelEndMenuUI; // ¹Øµ×²Ëµ¥µÄUI
-    public GameObject gameVictoryMenuUI; // ÓÎÏ·Í¨¹ØµÄUI
+    public GameObject pauseMenuUI; // æš‚åœèœå•çš„UI
+    public GameObject deadMenuUI; // æ­»äº¡èœå•çš„UI
+    public GameObject levelEndMenuUI; // å…³åº•èœå•çš„UI
+    public GameObject gameVictoryMenuUI; // æ¸¸æˆé€šå…³çš„UI
 
     void Update()
     {
-        // °´Esc¼üÔİÍ£»òÔÚÔİÍ£Ê±¼ÌĞø
+        // æŒ‰Escé”®æš‚åœæˆ–åœ¨æš‚åœæ—¶ç»§ç»­
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePause(); // ÇĞ»»ÔİÍ£×´Ì¬
+            TogglePause(); // åˆ‡æ¢æš‚åœçŠ¶æ€
         }
     }
 
     void Awake()
     {
         DontDestroyOnLoad(this);
-    }
-
-    /// <summary>
-    /// ÔİÍ£µ¯´°
-    /// </summary>
-    public void TogglePause()// ÇĞ»»ÔİÍ£×´Ì¬
-    {
-        if (isGamePaused)
+        if (Instance == null)
         {
-            ResumeGame(); // Èç¹ûÓÎÏ·ÒÑÔİÍ££¬Ôò¹Ø±Õµ¯´°¼ÌĞøÓÎÏ·
+            Instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            PauseGame(); // Èç¹ûÓÎÏ·Î´ÔİÍ££¬ÔòÔİÍ£ÓÎÏ·´ò¿ªµ¯´°
+            Destroy(this.gameObject);
+        }
+    }
+
+    /// <summary>
+    /// æš‚åœå¼¹çª—
+    /// </summary>
+    public void TogglePause()// åˆ‡æ¢æš‚åœçŠ¶æ€
+    {
+        if (isGamePaused)
+        {
+            ResumeGame(); // å¦‚æœæ¸¸æˆå·²æš‚åœï¼Œåˆ™å…³é—­å¼¹çª—ç»§ç»­æ¸¸æˆ
+        }
+        else
+        {
+            PauseGame(); // å¦‚æœæ¸¸æˆæœªæš‚åœï¼Œåˆ™æš‚åœæ¸¸æˆæ‰“å¼€å¼¹çª—
         }
     }
 
     public void PauseGame()
     {
-        Debug.Log("Í£Ö¹ÓÎÏ·Ê±¼ä");
-        Time.timeScale = 0; // Í£Ö¹ÓÎÏ·Ê±¼ä
-        isGamePaused = true; // ÉèÖÃÓÎÏ·ÎªÔİÍ£×´Ì¬
-        pauseMenuUI.SetActive(true); // ÏÔÊ¾ÔİÍ£²Ëµ¥
+        Debug.Log("åœæ­¢æ¸¸æˆæ—¶é—´");
+        Time.timeScale = 0; // åœæ­¢æ¸¸æˆæ—¶é—´
+        isGamePaused = true; // è®¾ç½®æ¸¸æˆä¸ºæš‚åœçŠ¶æ€
+        pauseMenuUI.SetActive(true); // æ˜¾ç¤ºæš‚åœèœå•
     }
     public void ResumeGame()
     {
-        Debug.Log("»Ö¸´ÓÎÏ·Ê±¼ä");
+        Debug.Log("æ¢å¤æ¸¸æˆæ—¶é—´");
         if (pauseMenuUI.activeSelf == true)
         {
-            Time.timeScale = 1; // »Ö¸´ÓÎÏ·Ê±¼ä
-            isGamePaused = false; // ÉèÖÃÓÎÏ·Îª·ÇÔİÍ£×´Ì¬
-            pauseMenuUI.SetActive(false); // Òş²ØÔİÍ£²Ëµ¥
+            Time.timeScale = 1; // æ¢å¤æ¸¸æˆæ—¶é—´
+            isGamePaused = false; // è®¾ç½®æ¸¸æˆä¸ºéæš‚åœçŠ¶æ€
+            pauseMenuUI.SetActive(false); // éšè—æš‚åœèœå•
         }
 
     }
 
     /// <summary>
-    /// ËÀÍöµ¯´°
+    /// æ­»äº¡å¼¹çª—
     /// </summary>
 
-    public void OpenDeadMenuUI()//ËÀÍöÊ±µ÷ÓÃ£¬µ¯³öÖØÊÔµ¯´°
+    public void OpenDeadMenuUI()//æ­»äº¡æ—¶è°ƒç”¨ï¼Œå¼¹å‡ºé‡è¯•å¼¹çª—
     {
         //StartCoroutine(LoadCoroutine(SceneManager.GetActiveScene().name));
-        //ºÚÆÁ½¥Èë
+        //é»‘å±æ¸å…¥
         
-        //deadMenuUI.SetActive(true); // ÏÔÊ¾ÖØÊÔµ¯´°
+        //deadMenuUI.SetActive(true); // æ˜¾ç¤ºé‡è¯•å¼¹çª—
     }
 
-    public void RetryButton()//ËÀÍöÊ±µ¯´°Àïµã»÷ÖØÊÔ
+    public void RetryButton()//æ­»äº¡æ—¶å¼¹çª—é‡Œç‚¹å‡»é‡è¯•
     {
     }
 
 
     /// <summary>
-    /// ÏÂÒ»¹Øµ¯´°
+    /// ä¸‹ä¸€å…³å¼¹çª—
     /// </summary>
     /// 
 
-    public void OpenLevelEndMenuUI()//µ½´ï¹Øµ×ÇøÓòÊ±´¥·¢µ÷ÓÃ£¬µ¯³öÏÂÒ»¹ØÈ·ÈÏµ¯´°
+    public void OpenLevelEndMenuUI()//åˆ°è¾¾å…³åº•åŒºåŸŸæ—¶è§¦å‘è°ƒç”¨ï¼Œå¼¹å‡ºä¸‹ä¸€å…³ç¡®è®¤å¼¹çª—
     {
-        Time.timeScale = 0; // Í£Ö¹ÓÎÏ·Ê±¼ä
-        isGamePaused = true; // ÉèÖÃÓÎÏ·ÎªÔİÍ£×´Ì¬
-        levelEndMenuUI.SetActive(true); // ÏÔÊ¾ÏÂÒ»¹Øµ¯´°
+        Time.timeScale = 0; // åœæ­¢æ¸¸æˆæ—¶é—´
+        isGamePaused = true; // è®¾ç½®æ¸¸æˆä¸ºæš‚åœçŠ¶æ€
+        levelEndMenuUI.SetActive(true); // æ˜¾ç¤ºä¸‹ä¸€å…³å¼¹çª—
     }
 
-    public void NextLevelButton()//¹Øµ×Ê±µ¯´°Àïµã»÷ÏÂÒ»¹Ø
+    public void NextLevelButton()//å…³åº•æ—¶å¼¹çª—é‡Œç‚¹å‡»ä¸‹ä¸€å…³
     {
         if (SceneManager.GetActiveScene().name == "level 1")
         {
@@ -107,13 +118,13 @@ public class GamePopup : MonoBehaviour
     }
 
     /// <summary>
-    /// ÏÂÒ»¹Øµ¯´°
+    /// ä¸‹ä¸€å…³å¼¹çª—
     /// </summary>
     /// 
 
-    public void OpenGameVictoryMenuUI()//×îºóÒ»¹ØÍ¨¹ØÊ±µ÷ÓÃ£¬½øÈëÓÎÏ·½áÎ²»­Ãæ
+    public void OpenGameVictoryMenuUI()//æœ€åä¸€å…³é€šå…³æ—¶è°ƒç”¨ï¼Œè¿›å…¥æ¸¸æˆç»“å°¾ç”»é¢
     {
-        gameVictoryMenuUI.SetActive(true); // ÏÔÊ¾ÏÂÒ»¹Øµ¯´°
+        gameVictoryMenuUI.SetActive(true); // æ˜¾ç¤ºä¸‹ä¸€å…³å¼¹çª—
     }
 
     public void BackMainMenuButton()
@@ -127,8 +138,8 @@ public class GamePopup : MonoBehaviour
 
     public IEnumerator LoadCoroutine(string sceneName)
     {
-        transitionImage.gameObject.SetActive(true);//¿ªÆôºÚÆÁ¹ı³¡Í¼Æ¬
-        while (color.a < 1f)//ºÚÆÁµ­Èë
+        transitionImage.gameObject.SetActive(true);//å¼€å¯é»‘å±è¿‡åœºå›¾ç‰‡
+        while (color.a < 1f)//é»‘å±æ·¡å…¥
         {
             color.a = Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
             transitionImage.color = color;
@@ -138,7 +149,7 @@ public class GamePopup : MonoBehaviour
         SceneManager.LoadScene(sceneName);
 
         transitionImage.gameObject.SetActive(false);
-        while (color.a > 0f)//Èç¹û¼ÓÔØÍê±Ï£¬ºÚÆÁµ­³ö
+        while (color.a > 0f)//å¦‚æœåŠ è½½å®Œæ¯•ï¼Œé»‘å±æ·¡å‡º
         {
             Time.timeScale = 1f;
             color.a = Mathf.Clamp01(color.a - Time.unscaledDeltaTime / fadeTime);
@@ -151,8 +162,8 @@ public class GamePopup : MonoBehaviour
 
     public IEnumerator TransitionInCoroutine()
     {
-        transitionImage.gameObject.SetActive(true);//¿ªÆôºÚÆÁ¹ı³¡Í¼Æ¬
-        while (color.a < 1f)//ºÚÆÁ½¥Èë
+        transitionImage.gameObject.SetActive(true);//å¼€å¯é»‘å±è¿‡åœºå›¾ç‰‡
+        while (color.a < 1f)//é»‘å±æ¸å…¥
         {
             color.a = Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
             transitionImage.color = color;
@@ -163,11 +174,15 @@ public class GamePopup : MonoBehaviour
         }
         setPlayerPosition();
         StartCoroutine(TransitionOutCoroutine());
+       
+        DataController.Instance.dides += 1; ; 
+        Destroy(this.gameObject);
+        Debug.Log("æ­»äº¡æ¬¡æ•°" + DataController.Instance.dides);
     }
 
     public IEnumerator TransitionOutCoroutine()
     {
-        while (color.a > 0f)//Èç¹û¼ÓÔØÍê±ÏÇÒÍêÈ«ºÚÆÁ£¬ºÚÆÁµ­³ö
+        while (color.a > 0f)//å¦‚æœåŠ è½½å®Œæ¯•ä¸”å®Œå…¨é»‘å±ï¼Œé»‘å±æ·¡å‡º
         {
             if (color.a <= 0.05f)
             {
@@ -178,7 +193,7 @@ public class GamePopup : MonoBehaviour
             transitionImage.color = color;
             yield return null;
         }
-        transitionImage.gameObject.SetActive(false);//¹Ø±ÕºÚÆÁ¹ı³¡Í¼Æ¬
+        transitionImage.gameObject.SetActive(false);//å…³é—­é»‘å±è¿‡åœºå›¾ç‰‡
     }
 
     public GameObject Player;
