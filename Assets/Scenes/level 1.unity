@@ -3218,10 +3218,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -3285,7 +3285,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3305,16 +3305,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1510268951}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.233901
+  m_Distance: 0.595399
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &499446902
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -3325,16 +3325,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1827909021}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.233901
+  m_Distance: 0.56794167
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &499446903
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -3345,16 +3345,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 682559195}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.233901
+  m_Distance: 0.5949477
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!1 &501213511
 GameObject:
   m_ObjectHideFlags: 0
@@ -5230,7 +5230,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 1.3291618, y: 0.29670414}
   m_AutoConfigureDistance: 1
-  m_Distance: 1.0151029
+  m_Distance: 1.0151031
   m_MaxDistanceOnly: 0
 --- !u!50 &682559195
 Rigidbody2D:
@@ -5244,10 +5244,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5311,7 +5311,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5331,16 +5331,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 499446898}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.022871
+  m_Distance: 0.5949477
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &682559199
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -5351,16 +5351,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 727129492}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.022871
+  m_Distance: 0.5845588
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &682559200
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -5371,16 +5371,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1827909021}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 9.022871
+  m_Distance: 0.51523125
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!1 &727129489
 GameObject:
   m_ObjectHideFlags: 0
@@ -5450,10 +5450,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -5517,7 +5517,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5537,26 +5537,6 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
-  m_AutoConfigureConnectedAnchor: 0
-  m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
-  m_AutoConfigureDistance: 1
-  m_Distance: 8.457982
-  m_DampingRatio: 0
-  m_Frequency: 1
---- !u!231 &727129496
-SpringJoint2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 727129489}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 682559195}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
@@ -5566,8 +5546,8 @@ SpringJoint2D:
   m_AutoConfigureDistance: 1
   m_Distance: 0.5845588
   m_DampingRatio: 0
-  m_Frequency: 1
---- !u!231 &727129497
+  m_Frequency: 3
+--- !u!231 &727129496
 SpringJoint2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5584,9 +5564,29 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.5419125
+  m_Distance: 0.541912
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
+--- !u!231 &727129497
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 727129489}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1827909021}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 0.5728115
+  m_DampingRatio: 0
+  m_Frequency: 3
 --- !u!1001 &728365285
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6163,6 +6163,188 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806619783}
   m_CullTransparentMesh: 1
+--- !u!1 &812619788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812619789}
+  - component: {fileID: 812619791}
+  - component: {fileID: 812619790}
+  m_Layer: 0
+  m_Name: Closed Sprite Shape
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &812619789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812619788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827909018}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &812619790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812619788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90539df1cd5704abcb25fec9f3f5f84b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Spline:
+    m_IsOpenEnded: 0
+    m_ControlPoints:
+    - position: {x: -1.5582553, y: -0.20913903, z: 0}
+      leftTangent: {x: -0.0053441525, y: -0.26951033, z: 0}
+      rightTangent: {x: 0.0067744255, y: 0.34163857, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -0.91450286, y: 1.4186927, z: 0}
+      leftTangent: {x: -0.754223, y: -0.7122712, z: 0}
+      rightTangent: {x: 0.38227743, y: 0.3610145, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 0.85876185, y: 1.4689691, z: 0}
+      leftTangent: {x: -0.6824385, y: 0.36431634, z: 0}
+      rightTangent: {x: 0.75544196, y: -0.40328825, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 1.7673938, y: 0.14711055, z: 0}
+      leftTangent: {x: -0.0042384863, y: 0.47568342, z: 0}
+      rightTangent: {x: 0.00813663, y: -0.9132267, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 1.170578, y: -1.4186922, z: 0}
+      leftTangent: {x: 0.32261038, y: 0.29042494, z: 0}
+      rightTangent: {x: -0.35460836, y: -0.31923115, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: -0.49035612, y: -1.6169428, z: 0}
+      leftTangent: {x: 0.36045885, y: -0.12438667, z: 0}
+      rightTangent: {x: -0.34936914, y: 0.12056005, z: 0}
+      mode: 1
+      height: 1
+      bevelCutoff: 0
+      bevelSize: 0
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+  m_SpriteShape: {fileID: 11400000, guid: f24cddf7c09a6442abbce710a6fd7397, type: 2}
+  m_FillPixelPerUnit: 256
+  m_StretchTiling: 1
+  m_SplineDetail: 16
+  m_AdaptiveUV: 1
+  m_StretchUV: 0
+  m_WorldSpaceUV: 0
+  m_CornerAngleThreshold: 30
+  m_ColliderDetail: 16
+  m_ColliderOffset: 0.5
+  m_UpdateCollider: 1
+  m_OptimizeCollider: 1
+  m_OptimizeGeometry: 1
+  m_EnableTangents: 0
+  m_GeometryCached: 0
+  m_UTess2D: 0
+--- !u!1971053207 &812619791
+SpriteShapeRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812619788}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_MaskInteraction: 0
+  m_ShapeTexture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+  m_Sprites:
+  - {fileID: 21300000, guid: 0ae2b74b1edd14bb18dd7b65ae916a54, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
+  m_LocalAABB:
+    m_Center: {x: 0.10313809, y: 0.012199879, z: 0}
+    m_Extent: {x: 1.9142454, y: 1.9550123, z: 0}
 --- !u!1 &823541144
 GameObject:
   m_ObjectHideFlags: 0
@@ -6784,10 +6966,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -6851,7 +7033,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6871,16 +7053,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1454263474}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.25552
+  m_Distance: 0.567585
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &907460016
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -6891,16 +7073,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1510268951}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.25552
+  m_Distance: 0.56365514
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &907460017
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -6911,16 +7093,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1827909021}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.25552
+  m_Distance: 0.61271936
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!1 &911242591
 GameObject:
   m_ObjectHideFlags: 0
@@ -7892,7 +8074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005388646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.9244, y: -7.3686, z: 0}
+  m_LocalPosition: {x: 46.96, y: -10.59, z: 0}
   m_LocalScale: {x: 135.11134, y: 5.910074, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12090,7 +12272,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0.4242391, y: 1.2932674}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.595488
+  m_Distance: 0.59548783
   m_MaxDistanceOnly: 0
 --- !u!50 &1454263474
 Rigidbody2D:
@@ -12104,10 +12286,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -12171,7 +12353,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12200,7 +12382,7 @@ SpringJoint2D:
   m_AutoConfigureDistance: 1
   m_Distance: 0.567585
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &1454263478
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -12218,9 +12400,9 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.5419125
+  m_Distance: 0.541912
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &1454263479
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -12238,9 +12420,9 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.6208012
+  m_Distance: 0.6208009
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!1 &1457288854
 GameObject:
   m_ObjectHideFlags: 0
@@ -12804,7 +12986,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: -0.54772466, y: -1.2828509}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.9968557
+  m_Distance: 0.9968556
   m_MaxDistanceOnly: 0
 --- !u!50 &1510268951
 Rigidbody2D:
@@ -12818,10 +13000,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -12885,7 +13067,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12905,16 +13087,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 907460012}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.810122
+  m_Distance: 0.56365514
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &1510268955
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -12925,16 +13107,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 499446898}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.810122
+  m_Distance: 0.595399
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!231 &1510268956
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -12945,16 +13127,16 @@ SpringJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 1827909021}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 8.810122
+  m_Distance: 0.56682724
   m_DampingRatio: 0
-  m_Frequency: 1
+  m_Frequency: 3
 --- !u!1 &1526269661
 GameObject:
   m_ObjectHideFlags: 0
@@ -15346,7 +15528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1827909018
 Transform:
   m_ObjectHideFlags: 0
@@ -15355,7 +15537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1827909017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.384, y: 4.105, z: 0}
+  m_LocalPosition: {x: 5.72, y: 4.25, z: 0}
   m_LocalScale: {x: 0.4162, y: 0.4162, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15365,6 +15547,7 @@ Transform:
   - {fileID: 499446896}
   - {fileID: 1510268949}
   - {fileID: 907460010}
+  - {fileID: 812619789}
   m_Father: {fileID: 1826282248}
   m_RootOrder: 123
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15426,7 +15609,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -18443,9 +18626,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069682, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_Size.x
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069682, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869043335037069682, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: d638a9279bdc2fe45963d55b6a29f7f2, type: 3}
+      objectReference: {fileID: -552896617, guid: d638a9279bdc2fe45963d55b6a29f7f2, type: 3}
+    - target: {fileID: 2869043335037069682, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2869043335037069683, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: m_Name
       value: "\u89D2\u8272"
@@ -18461,6 +18656,30 @@ PrefabInstance:
     - target: {fileID: 2869043335037069686, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
       propertyPath: normalBubbleLayer.m_Bits
       value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575442985589327100, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: groundLayerMask_1.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575442985589327100, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: groundLayerMask_2.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575442985589327100, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: groundLayerMask_3.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575442985589327100, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: groundLayerMask_4.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932218165318938165, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_Radius
+      value: 0.7479317
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932218165318938165, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0984633
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5c0664b05e207a47a135d0e6ebe7ea7, type: 3}

@@ -162,7 +162,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -552896617, guid: d638a9279bdc2fe45963d55b6a29f7f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -203,13 +203,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 2869043335037069683}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 220f3795eb2f9f546ac296c73ccb7da9, type: 2}
+  m_Material: {fileID: 6200000, guid: 804ede8ea26707b429a71358fbc64a12, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.14296079, y: 0.07002157}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.60795
 --- !u!114 &2869043335037069686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   lowJumpMultiplier: 0.5
   jumpDuration: 2
   FallMultiplier: 1.01
+  decelerationRate: 0.5
   moveSpeed: 5000
   needleRadius: 1.25
   jumpForce: 10
@@ -247,6 +248,9 @@ MonoBehaviour:
   pushableBubbleLayer:
     serializedVersion: 2
     m_Bits: 512
+  jumpBufferTimer: 0
+  jumpBuffer: 15
+  GroundCollider: {fileID: 4247331868826921869}
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3336139900137917481}
   - component: {fileID: 8932218165318938165}
+  - component: {fileID: 4575442985589327100}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -292,6 +297,31 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.14587778, y: 0.07002127}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.67500263
+--- !u!114 &4575442985589327100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4247331868826921869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58cffe2f02c1f540acbea42de314b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayerMask_1:
+    serializedVersion: 2
+    m_Bits: 64
+  groundLayerMask_2:
+    serializedVersion: 2
+    m_Bits: 128
+  groundLayerMask_3:
+    serializedVersion: 2
+    m_Bits: 256
+  groundLayerMask_4:
+    serializedVersion: 2
+    m_Bits: 512
+  OnGround: 0

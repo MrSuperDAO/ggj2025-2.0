@@ -13,6 +13,7 @@ public class RotateTowardsMouse : MonoBehaviour
     public float lowJumpMultiplier;
     public float jumpDuration ;
     public float FallMultiplier;
+    public float decelerationRate;
 
     private Rigidbody2D rb;
     public float moveSpeed = 12f;
@@ -49,11 +50,15 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         RotateNeedle();
         CheckPunctureBubble();
+        
         if (Input.GetMouseButtonDown(0) && currentBubble != null)
         {
             PunctureBubble();
         }
+        playerMove();
+
     }
+
 
     void FixedUpdate()
     {
@@ -72,16 +77,25 @@ public class RotateTowardsMouse : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier  * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
-        if (rb.velocity.x > 0)
+        if (rb.velocity.x != 0)
         {
-            float velocityModifier = Physics2D.gravity.x * lowJumpMultiplier * 10f * Time.fixedDeltaTime;
-            rb.velocity += Vector2.left * velocityModifier;
-        }
-        else if (rb.velocity.x < 0)
-        {
-            // 跳跃上升结束，下落进行减速，缓缓下落
-            rb.velocity += Vector2.left * Physics2D.gravity.x * lowJumpMultiplier * 10f * Time.fixedDeltaTime;//给向下的力加速下落
+            float decelerationAmount = Mathf.Abs(rb.velocity.x) * decelerationRate * Time.fixedDeltaTime;
 
+            if (rb.velocity.x > 0)
+            {
+                rb.velocity = new Vector2(Mathf.Max(0, rb.velocity.x - decelerationAmount), rb.velocity.y);
+            }
+            else if (rb.velocity.x < 0)
+            {
+                rb.velocity = new Vector2(Mathf.Min(0, rb.velocity.x + decelerationAmount), rb.velocity.y);
+            }
+        }
+
+        // 设置一个阈值，当速度小于这个阈值时直接将其设置为0
+        float speedThreshold = 0.01f; // 你可以根据需要调整这个值
+        if (Mathf.Abs(rb.velocity.x) < speedThreshold)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
 
         /*        if (rb.velocity.x > 0)
@@ -118,7 +132,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void CheckPunctureBubble()
     {
-        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.1f); // 使用小半径检测针尖是否接触泡泡
+        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.2f); // 使用小半径检测针尖是否接触泡泡
         if (collider != null)
         {
             currentBubble = collider.gameObject;
@@ -134,10 +148,12 @@ public class RotateTowardsMouse : MonoBehaviour
     }
 
 
+    float jumpForceMagnitude ; // 默认跳跃力
     private void PunctureBubble()
     {
+
         bool respawn = true; // 默认泡泡是可重生的
-        float jumpForceMagnitude = jumpForce; // 默认跳跃力
+        jumpForceMagnitude = jumpForce;
         isBubblePunctured = true;
         bubblePunctureTime = Time.time; // 记录戳破时间
 
@@ -160,10 +176,7 @@ public class RotateTowardsMouse : MonoBehaviour
             // 可被其他泡泡爆破推动的泡泡（这里可能需要额外的逻辑来处理推动效果）
             // 例如，可以设置一个触发器来检测其他泡泡的爆破并应用力
         }
-        Vector2 jumpDirection = (needle.position - transform.position).normalized;
-        Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
-        // 应用跳跃冲力
-        rb.AddForce(-JumpForce, ForceMode2D.Impulse);
+
 
         if (!respawn)//判断是否为一次性
         {
@@ -181,6 +194,34 @@ public class RotateTowardsMouse : MonoBehaviour
         // 设置跳跃状态为true，并记录跳跃开始时间
         isJumping = true;
         jumpStartTime = Time.time;
+
+    }
+
+    public float jumpBufferTimer;
+    public float jumpBuffer;
+    public GameObject GroundCollider;
+
+    public void playerMove()
+    {
+        if (Input.GetMouseButtonDown(0) && currentBubble != null)
+        {
+            jumpBufferTimer = jumpBuffer;
+            if (jumpBufferTimer > 0)
+            {
+                if (GroundCollider.GetComponent<jump>().OnGround)//倒计时结束前如果
+                {
+                    rb.velocity = new Vector2(0,0);
+                    Vector2 jumpDirection = (needle.position - transform.position).normalized;
+                    Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
+                                                                           // 应用跳跃冲力
+                    rb.AddForce(-JumpForce, ForceMode2D.Impulse);
+                    jumpBufferTimer = 0;//如果跳跃了，则把倒计时归零，等待下一次按下空格
+                }
+                jumpBufferTimer--;//如果没有跳跃，则一直倒计时直至结束或者按下跳跃键
+            }
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -198,7 +239,7 @@ public class RotateTowardsMouse : MonoBehaviour
             {
                 // 根据泡泡类型加载预设体
                 GameObject bubblePrefab = null;
-                string prefabPath = "Prefabs/";//这里添加预制体路径，根据我们文件的预制体文件夹来找
+                string prefabPath = "Preferb/";//这里添加预制体路径，根据我们文件的预制体文件夹来找
                 string bubbleLayerName = LayerMask.LayerToName(bubble.Key.layer);
                 switch (bubbleLayerName)
                 {
@@ -239,4 +280,6 @@ public class RotateTowardsMouse : MonoBehaviour
     {
         
     }
+
+
 }
