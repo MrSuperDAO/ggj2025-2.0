@@ -1112,6 +1112,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5000
+  needleRadius: 2
+  bubbleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  bubbleRespawnTime: 3
 --- !u!1 &491835436
 GameObject:
   m_ObjectHideFlags: 0
@@ -2513,7 +2518,7 @@ GameObject:
   - component: {fileID: 1119737962}
   - component: {fileID: 1119737961}
   - component: {fileID: 1119737960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u5730\u9762"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2590,7 +2595,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 324976957
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
