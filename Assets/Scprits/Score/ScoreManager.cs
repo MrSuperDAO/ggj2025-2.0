@@ -7,7 +7,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     public static int score = 0;  // 当前分数
     public Text scoreText;  // 用于显示分数的Text组件
-    public Text timeText;// ������ʾʱ���Text���
+    public Text timeText;//显示时间组件
+
     private void Start()
     {
       
@@ -23,13 +24,13 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScoreText()
     {
         Debug.Log(DataController.Instance.time);
-        scoreText.text = "��������: " + DataController.Instance.dides;
-        timeText.text = "ʱ��: " + DataController.Instance.time;
+        scoreText.text = "死亡数: " + DataController.Instance.dides;
+        timeText.text = "时间: " + DataController.Instance.time;
     }
     public void DideAdd()
     {
 
-        // ����UpdateScoreText��������UI
+        
         FindObjectOfType<ScoreManager>().UpdateScoreText();
     }
 }

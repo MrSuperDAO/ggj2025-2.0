@@ -174,7 +174,8 @@ public class GamePopup : MonoBehaviour
         }
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine(TransitionOutCoroutine());
-        DataController.Instance.dides += 1; ; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       
+        DataController.Instance.dides += 1; ; 
         Destroy(this.gameObject);
         Debug.Log("æ­»äº¡æ¬¡æ•°" + DataController.Instance.dides);
     }
@@ -200,18 +201,18 @@ public class GamePopup : MonoBehaviour
 
     public void setPlayerPosition()
     {
-        if(saveArea.name == "´æµµ°²È«µã0")
+        if(saveArea.name == "ï¿½æµµï¿½ï¿½È«ï¿½ï¿½0")
         {
         }
-        else if (saveArea.name == "´æµµ°²È«µã1")
-        {
-
-        }
-        else if (saveArea.name == "´æµµ°²È«µã2")
+        else if (saveArea.name == "ï¿½æµµï¿½ï¿½È«ï¿½ï¿½1")
         {
 
         }
-        else if (saveArea.name == "´æµµ°²È«µã3")
+        else if (saveArea.name == "ï¿½æµµï¿½ï¿½È«ï¿½ï¿½2")
+        {
+
+        }
+        else if (saveArea.name == "ï¿½æµµï¿½ï¿½È«ï¿½ï¿½3")
         {
 
         }
