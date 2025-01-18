@@ -1,9 +1,6 @@
 ﻿using UnityEditor.Media;
 using UnityEngine;
 
-using UnityEditor.Media;
-using UnityEngine;
-
 public class RotateTowardsMouse : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -49,7 +46,7 @@ public class RotateTowardsMouse : MonoBehaviour
         needle.position = transform.position + direction;
 
         // 计算旋转角度
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg+90;
 
         // 设置针的旋转，使其面向鼠标位置（其实这里不需要，因为直接设置了位置）
         // 但如果为了视觉效果，可以保留或调整
