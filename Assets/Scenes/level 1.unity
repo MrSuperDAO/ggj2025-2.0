@@ -1112,8 +1112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5000
-  needleRadius: 0.7
-  jumpForce: 7
+  needleRadius: 0.5
+  jumpForce: 1
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2596,7 +2596,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 324976957
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
