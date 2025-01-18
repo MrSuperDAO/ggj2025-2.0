@@ -222,8 +222,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5000
-  needleRadius: 2
+  needleRadius: 0.7
+  jumpForce: 7
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 64
-  bubbleRespawnTime: 3
+  bubbleRespawnTime: 1
