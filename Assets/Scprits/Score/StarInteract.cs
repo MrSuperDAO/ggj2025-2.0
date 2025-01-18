@@ -21,7 +21,7 @@ public class StarInteract : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Star +!");
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
    
