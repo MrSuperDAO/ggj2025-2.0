@@ -65,6 +65,17 @@ public class RotateTowardsMouse : MonoBehaviour
             rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
+
+/*        if (rb.velocity.x > 0)
+        {
+            float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+            rb.velocity += Vector2.up * velocityModifier;
+        }
+        else if (rb.velocity.x < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+
+        }*/
     }
 
     private void RotateNeedle()

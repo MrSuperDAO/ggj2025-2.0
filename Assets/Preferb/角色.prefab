@@ -240,13 +240,13 @@ MonoBehaviour:
     m_Bits: 64
   strongBubbleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   nonRespawnBubbleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   pushableBubbleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
