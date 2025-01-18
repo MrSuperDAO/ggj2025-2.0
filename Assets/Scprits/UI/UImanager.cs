@@ -40,6 +40,9 @@ public class UImanager : MonoBehaviour
     }
     public void RetryButton()
     {
+        GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
+        GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
+        gamePopup.ResumeGame();
         Debug.Log("重新开始");
     }
  }

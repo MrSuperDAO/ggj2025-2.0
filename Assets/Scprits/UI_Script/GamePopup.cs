@@ -38,13 +38,15 @@ public class GamePopup : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("停止游戏时间");
         Time.timeScale = 0; // 停止游戏时间
         isGamePaused = true; // 设置游戏为暂停状态
         pauseMenuUI.SetActive(true); // 显示暂停菜单
     }
     public void ResumeGame()
     {
-        if(pauseMenuUI.activeSelf == true)
+        Debug.Log("恢复游戏时间");
+        if (pauseMenuUI.activeSelf == true)
         {
             Time.timeScale = 1; // 恢复游戏时间
             isGamePaused = false; // 设置游戏为非暂停状态
@@ -67,6 +69,7 @@ public class GamePopup : MonoBehaviour
     public void RetryButton()//死亡时弹窗里点击重试
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        ResumeGame();
     }
 
 
