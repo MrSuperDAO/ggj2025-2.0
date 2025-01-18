@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 436934378209815157}
   - component: {fileID: 1969477481336593745}
   - component: {fileID: 2362973746984220660}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: StrongBubblePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

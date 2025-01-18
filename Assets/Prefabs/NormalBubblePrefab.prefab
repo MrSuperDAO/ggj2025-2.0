@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6420504171724657672}
   - component: {fileID: 6420504171724657675}
   - component: {fileID: 6420504171724657674}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: NormalBubblePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

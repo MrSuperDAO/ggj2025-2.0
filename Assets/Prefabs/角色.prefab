@@ -248,6 +248,8 @@ MonoBehaviour:
   pushableBubbleLayer:
     serializedVersion: 2
     m_Bits: 512
+  NormalBubblePrefab: {fileID: 6420504171724657910, guid: 295668702ecbc464fb6d499bbff7168c, type: 3}
+  StrongBubblePrefab: {fileID: 5195466883025422852, guid: cd5534dbd586b5043b851b17590e005e, type: 3}
   jumpBufferTimer: 0
   jumpBuffer: 15
   GroundCollider: {fileID: 4247331868826921869}
