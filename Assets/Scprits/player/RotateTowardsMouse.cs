@@ -45,10 +45,11 @@ public class RotateTowardsMouse : MonoBehaviour
             float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
             rb.velocity += Vector2.up * velocityModifier;
         }
-        else
+        else if (rb.velocity.y <0)
         {
-            // 跳跃上升结束，重置跳跃状态，下落不需要缓动
-            
+            // 跳跃上升结束，下落进行加速
+            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+
         }
     }
 
@@ -93,8 +94,10 @@ public class RotateTowardsMouse : MonoBehaviour
     public bool isJumping;
     public bool isFalling;
     private float jumpStartTime;
+
     public float lowJumpMultiplier;
-    public float jumpDuration ; 
+    public float jumpDuration ;
+    public float FallMultiplier;
 
     private void PunctureBubble()
     {

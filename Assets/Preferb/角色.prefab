@@ -193,7 +193,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &2869043335037069687
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -234,6 +234,7 @@ MonoBehaviour:
   isFalling: 0
   lowJumpMultiplier: 0.5
   jumpDuration: 2
+  FallMultiplier: 1.05
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
