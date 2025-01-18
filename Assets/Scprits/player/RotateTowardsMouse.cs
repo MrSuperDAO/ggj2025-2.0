@@ -37,7 +37,7 @@ public class RotateTowardsMouse : MonoBehaviour
             Debug.LogError("针(针)未找到在玩家对象上！");
         }
     }
-
+    
     private void Update()
     {
         RotateNeedle();
@@ -46,6 +46,7 @@ public class RotateTowardsMouse : MonoBehaviour
         {
             PunctureBubble();
         }
+       
     }
 
     void FixedUpdate()
