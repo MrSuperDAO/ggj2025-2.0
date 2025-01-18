@@ -658,15 +658,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461409252}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dd591de402d0784eaa20421c70fddba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
   pauseMenuUI: {fileID: 674879260}
   deadMenuUI: {fileID: 1064728103}
   levelEndMenuUI: {fileID: 1526379766}
   gameVictoryMenuUI: {fileID: 1123499395}
+  transitionImage: {fileID: 0}
+  fadeTime: 0
 --- !u!114 &461409254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1978,7 +1981,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 324976957
-  m_SortingLayer: 0
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2537,7 +2540,7 @@ Tilemap:
   - m_RefCount: 49
     m_Data: {r: 0.38113207, g: 0.79133683, b: 1, a: 0.30588236}
   - m_RefCount: 1
-    m_Data: {r: 1, g: 0.63584906, b: 0.9635353, a: 0.7254902}
+    m_Data: {r: 0.7158255, g: 1, b: 0.63529414, a: 0.7254902}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3738,10 +3741,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5000
   needleRadius: 2
+  jumpForce: 0
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 0
   bubbleRespawnTime: 3
+  isOnGround: 0
+  isJumping: 0
+  isFalling: 0
+  lowJumpMultiplier: 0
+  jumpDuration: 0
+  FallMultiplier: 0
 --- !u!58 &1559163185
 CircleCollider2D:
   m_ObjectHideFlags: 0

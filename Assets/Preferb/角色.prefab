@@ -188,7 +188,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5000
   needleRadius: 1.25
-  jumpForce: 10
+  jumpForce: 4
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -234,7 +234,7 @@ MonoBehaviour:
   isFalling: 0
   lowJumpMultiplier: 0.5
   jumpDuration: 2
-  FallMultiplier: 1.05
+  FallMultiplier: 1.01
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
