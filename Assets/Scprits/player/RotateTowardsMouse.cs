@@ -1,4 +1,6 @@
-﻿using UnityEditor.Media;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.Media;
 using UnityEngine;
 
 public class RotateTowardsMouse : MonoBehaviour
@@ -28,6 +30,11 @@ public class RotateTowardsMouse : MonoBehaviour
     public LayerMask strongBubbleLayer;//强力
     public LayerMask nonRespawnBubbleLayer;//不可再生
     public LayerMask pushableBubbleLayer;//可被吹动
+
+    #region 泡泡字典
+    //添加数据字典存放被戳破的泡泡
+    private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
+    #endregion
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -157,8 +164,9 @@ public class RotateTowardsMouse : MonoBehaviour
             bubblePunctureTime = Time.time;
             currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
         }
+        puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
 
-        currentBubble = null; // 重置当前泡泡
+        //currentBubble = null; // 重置当前泡泡（可能不需要，出问题可以看看一这里）
         // 设置跳跃状态为true，并记录跳跃开始时间
         isJumping = true;
         jumpStartTime = Time.time;
@@ -170,63 +178,42 @@ public class RotateTowardsMouse : MonoBehaviour
         // 但通常重生逻辑会在Update中根据bubblePunctureTime和bubbleRespawnTime来处理
     }
 
-    /*private void LateUpdate()
-    {
-        // 检查是否需要重生泡泡
-        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
-        {
-            // 重生泡泡（获取泡泡预设体，并且在原始位置重生的）
-            GameObject bubblePrefab = Resources.Load<GameObject>("Prefabs/BubblePrefab"); // 根据资源路径调整
-            if (bubblePrefab != null)
-            {
-                Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
-            }
-
-            isBubblePunctured = false;
-            // 如果泡泡对象被禁用了，这里可以重新启用它
-            // currentBubble.SetActive(true);
-
-            // 重置currentBubble，因为我们已经重生了一个新的泡泡
-            currentBubble = null;
-        }
-    }*/
     private void LateUpdate()
     {
-        // 检查是否需要重生泡泡
-        if (isBubblePunctured && Time.time - bubblePunctureTime > bubbleRespawnTime && currentBubble != null)
+        // 遍历被戳破的泡泡字典
+        foreach (var bubble in puncturedBubbles.ToArray())
         {
-            // 根据泡泡类型加载预设体
-            GameObject bubblePrefab = null;
-            string prefabPath = "Prefabs/";
-            switch (LayerMask.LayerToName(currentBubble.layer))
+            if (Time.time - bubble.Value > bubbleRespawnTime)
             {
-                case "NormalBubble":
-                    prefabPath += "NormalBubblePrefab";
-                    break;
-                case "StrongBubble":
-                    prefabPath += "StrongBubblePrefab";
-                    break;
-                // 可以为其他泡泡类型添加case
-                default:
-                    Debug.LogError("未知的泡泡类型: " + LayerMask.LayerToName(currentBubble.layer));
-                    return;
+                // 根据泡泡类型加载预设体
+                GameObject bubblePrefab = null;
+                string prefabPath = "Prefabs/";//这里添加预制体路径，根据我们文件的预制体文件夹来找
+                string bubbleLayerName = LayerMask.LayerToName(bubble.Key.layer);
+                switch (bubbleLayerName)
+                {
+                    case "NormalBubble":
+                        prefabPath += "NormalBubblePrefab";//预制体的命名必须和引号内相同
+                        break;
+                    case "StrongBubble":
+                        prefabPath += "StrongBubblePrefab";
+                        break;
+                    default:
+                        Debug.LogError("未知的泡泡类型: " + bubbleLayerName);
+                        continue;
+                }
+                bubblePrefab = Resources.Load<GameObject>(prefabPath);
+                if (bubblePrefab != null)
+                {
+                    Instantiate(bubblePrefab, bubble.Key.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("无法加载泡泡预设体: " + prefabPath);
+                }
+
+                // 从字典中移除已处理的泡泡
+                puncturedBubbles.Remove(bubble.Key);
             }
-
-            bubblePrefab = Resources.Load<GameObject>(prefabPath);
-            if (bubblePrefab == null)
-            {
-                Debug.LogError("无法加载泡泡预设体: " + prefabPath);
-                return;
-            }
-
-            // 重生泡泡
-            GameObject newBubble = Instantiate(bubblePrefab, currentBubble.transform.position, Quaternion.identity);
-            // 重置泡泡状态（如果需要的话）
-            // newBubble.GetComponent<BubbleBehaviour>().ResetState(); // 假设BubbleBehaviour是泡泡的脚本组件
-
-            // 重置当前泡泡和状态
-            isBubblePunctured = false;
-            currentBubble = null;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
