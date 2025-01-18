@@ -175,8 +175,9 @@ public class RotateTowardsMouse : MonoBehaviour
             isBubblePunctured = true;
             bubblePunctureTime = Time.time;
             currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
+            puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
         }
-        puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
+        
 
         //currentBubble = null; // 重置当前泡泡（可能不需要，出问题可以看看一这里）
         // 设置跳跃状态为true，并记录跳跃开始时间
