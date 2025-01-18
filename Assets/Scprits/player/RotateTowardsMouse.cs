@@ -69,20 +69,31 @@ public class RotateTowardsMouse : MonoBehaviour
         else if (rb.velocity.y <0)
         {
             // 跳跃上升结束，下落进行减速，缓缓下落
-            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier  * Time.fixedDeltaTime;//给向下的力加速下落
 
         }
-
-/*        if (rb.velocity.x > 0)
+        if (rb.velocity.x > 0)
         {
-            float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
-            rb.velocity += Vector2.up * velocityModifier;
+            float velocityModifier = Physics2D.gravity.x * lowJumpMultiplier * 10f * Time.fixedDeltaTime;
+            rb.velocity += Vector2.left * velocityModifier;
         }
         else if (rb.velocity.x < 0)
         {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+            // 跳跃上升结束，下落进行减速，缓缓下落
+            rb.velocity += Vector2.left * Physics2D.gravity.x * lowJumpMultiplier * 10f * Time.fixedDeltaTime;//给向下的力加速下落
 
-        }*/
+        }
+
+        /*        if (rb.velocity.x > 0)
+                {
+                    float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+                    rb.velocity += Vector2.up * velocityModifier;
+                }
+                else if (rb.velocity.x < 0)
+                {
+                    rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+
+                }*/
     }
 
     private void RotateNeedle()
