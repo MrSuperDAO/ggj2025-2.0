@@ -195,4 +195,25 @@ public class GamePopup : MonoBehaviour
         transitionImage.gameObject.SetActive(false);//鍏抽棴榛戝睆杩囧満鍥剧墖
     }
 
+    public GameObject saveArea;
+    public GameObject Player;
+
+    public void setPlayerPosition()
+    {
+        if(saveArea.name == "存档安全点0")
+        {
+        }
+        else if (saveArea.name == "存档安全点1")
+        {
+
+        }
+        else if (saveArea.name == "存档安全点2")
+        {
+
+        }
+        else if (saveArea.name == "存档安全点3")
+        {
+
+        }
+    }
 }
