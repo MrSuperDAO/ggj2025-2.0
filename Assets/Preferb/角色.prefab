@@ -222,19 +222,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9bbbc13f849f0f4aa89fee3461dc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5000
-  needleRadius: 1.25
-  jumpForce: 4
-  bubbleLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  bubbleRespawnTime: 1
   isOnGround: 0
   isJumping: 0
   isFalling: 0
   lowJumpMultiplier: 0.5
   jumpDuration: 2
   FallMultiplier: 1.01
+  moveSpeed: 5000
+  needleRadius: 1.25
+  jumpForce: 10
+  bubbleRespawnTime: 1
+  bubbleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  normalBubbleLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  strongBubbleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nonRespawnBubbleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  pushableBubbleLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
