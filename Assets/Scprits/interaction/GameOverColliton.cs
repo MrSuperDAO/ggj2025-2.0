@@ -1,7 +1,8 @@
-using System.Collections;
+锘縰sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class GameOverColliton : MonoBehaviour
 {
@@ -21,12 +22,16 @@ public class GameOverColliton : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
+        GameObject scoreObject = GameObject.Find("ScoreManager");
+        ScoreManager score = scoreObject.GetComponent<ScoreManager>();//锟斤拷锟斤拷锟絊coreManager
+
+        GameObject gamePopupObjiect = GameObject.Find("娓告垙鐣岄潰UI");
         GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
-            //Debug.Log("失败重新再来");
+            score.DideAdd();
+            //Debug.Log("澶辫触閲嶆柊鍐嶆潵");
             //gamePopup.PauseGame();
         }
         //retryButton.SetActive(true);

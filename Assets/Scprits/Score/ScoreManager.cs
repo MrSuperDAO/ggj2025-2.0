@@ -1,31 +1,37 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int score = 0;  // µ±Ç°·ÖÊı
-    public Text scoreText;  // ÓÃÓÚÏÔÊ¾·ÖÊıµÄText×é¼ş
+    public static int score = 0;  // å½“å‰åˆ†æ•°
+    public Text scoreText;  // ç”¨äºæ˜¾ç¤ºåˆ†æ•°çš„Textç»„ä»¶
+    public Text timeText;//æ˜¾ç¤ºæ—¶é—´ç»„ä»¶
 
     private void Start()
     {
-        // ³õÊ¼»¯·ÖÊı
-        score = 0;
+      
+    }
+
+    // æ›´æ–°åˆ†æ•°
+    private void Update()
+    {
         UpdateScoreText();
     }
 
-    // ¸üĞÂ·ÖÊı
-    public static void AddScore(int points)
-    {
-        score += points;
-        // µ÷ÓÃUpdateScoreText·½·¨¸üĞÂUI
-        FindObjectOfType<ScoreManager>().UpdateScoreText();
-    }
-
-    // ¸üĞÂUIÖĞµÄ·ÖÊıÏÔÊ¾
+    // æ›´æ–°UIä¸­çš„åˆ†æ•°æ˜¾ç¤º
     private void UpdateScoreText()
     {
-        scoreText.text = "Score: " + score;
+        Debug.Log(DataController.Instance.time);
+        scoreText.text = "æ­»äº¡æ•°: " + DataController.Instance.dides;
+        timeText.text = "æ—¶é—´: " + DataController.Instance.time;
+    }
+    public void DideAdd()
+    {
+
+        
+        FindObjectOfType<ScoreManager>().UpdateScoreText();
     }
 }
+

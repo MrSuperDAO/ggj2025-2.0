@@ -253,6 +253,7 @@ MonoBehaviour:
   jumpBufferTimer: 0
   jumpBuffer: 15
   GroundCollider: {fileID: 4247331868826921869}
+  lastSaveArea: {fileID: 7070443233968836688, guid: 159b9e060242fda4ba04b391c68e9e2f, type: 3}
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
