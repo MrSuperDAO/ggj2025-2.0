@@ -2242,7 +2242,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3707da12e129d2443abc7296e3629a1e, type: 3}
-    m_FontSize: 54
+    m_FontSize: 88
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -2253,7 +2253,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6CE1\u6CE1\u7269\u8BED"
+  m_Text: "\u9010\u65E5\u6674\u7A7A"
 --- !u!222 &1975765572
 CanvasRenderer:
   m_ObjectHideFlags: 0
