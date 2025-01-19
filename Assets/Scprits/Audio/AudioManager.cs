@@ -20,32 +20,5 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string soundName)
-    {
-        if (audioSources.TryGetValue(soundName, out AudioSource audioSource))
-        {
-            audioSource.Play();
-        }
-        else
-        {
-            Debug.LogError("Sound not found: " + soundName);
-        }
-    }
-
-    public void StopSound(string soundName)
-    {
-        if (audioSources.TryGetValue(soundName, out AudioSource audioSource))
-        {
-            audioSource.Stop();
-        }
-    }
-
-    public void AddSound(string soundName, AudioClip clip)
-    {
-        GameObject audioObject = new GameObject(soundName);
-        audioObject.transform.SetParent(transform);
-        AudioSource audioSource = audioObject.AddComponent<AudioSource>();
-        audioSource.clip = clip;
-        audioSources.Add(soundName, audioSource);
-    }
+   
 }

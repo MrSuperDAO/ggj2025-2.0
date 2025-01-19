@@ -10,7 +10,8 @@ public class Exitslevel1 : MonoBehaviour
     public GameObject zeroStars;
     public GameObject oneStars;
     public GameObject twoStars;
-    public GameObject threeStars;
+    public GameObject threeStars; 
+ 
     void Start()
     {
         
@@ -21,11 +22,13 @@ public class Exitslevel1 : MonoBehaviour
     {
 
     }
+   
     public int stars = 0;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            ExsitAudio.Instance.ExsitAudios();
             Debug.Log("下一关");
             GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
             GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();

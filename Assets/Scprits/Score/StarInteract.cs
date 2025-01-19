@@ -22,7 +22,7 @@ public class StarInteract : MonoBehaviour
         {
             Exitslevel1 exitslevel1 = FindObjectOfType<Exitslevel1>();
             exitslevel1.StarAdd();
-
+            StarAudio.Instance.StarAudios();
             Destroy(this.gameObject);
         }
     }

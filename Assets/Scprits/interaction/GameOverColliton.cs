@@ -29,6 +29,7 @@ public class GameOverColliton : MonoBehaviour
         //GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
         if (collision.gameObject.CompareTag("Player"))
         {
+            DieAudio.Instance.DieAudios();
             StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
             score.DideAdd();
             Debug.Log("失败重新再来");
