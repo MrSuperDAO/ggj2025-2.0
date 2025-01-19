@@ -23,19 +23,6 @@ public class GamePopup : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        DontDestroyOnLoad(this);
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
 
     /// <summary>
     /// 暂停弹窗

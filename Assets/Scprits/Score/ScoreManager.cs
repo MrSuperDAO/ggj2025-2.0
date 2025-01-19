@@ -24,7 +24,6 @@ public class ScoreManager : MonoBehaviour
     private void UpdateScoreText()
     {
         
-
         scoreText.text = "坠落次数： " + DataController.Instance.dides;
         timeText.text = "完成时间: " + DataController.Instance.time + "秒" ;
     }
