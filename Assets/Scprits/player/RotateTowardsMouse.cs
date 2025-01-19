@@ -72,43 +72,47 @@ public class RotateTowardsMouse : MonoBehaviour
         anim.SetBool("IsMoving", isMoving);//转换移动或静止
         anim.SetFloat("Direction", rb.velocity.x);//跳跃的面朝方向
     }
+    public bool canmove = true;
     void FixedUpdate()
     {
-
-        float elapsedTime = Time.time - jumpStartTime;
-
-        // 如果跳跃持续时间未结束，则应用缓动效果
-        if (rb.velocity.y > 0)
+        if(canmove)
         {
-            float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
-            rb.velocity += Vector2.up * velocityModifier;
-        }
-        else if (rb.velocity.y < 0)
-        {
-            // 跳跃上升结束，下落进行减速，缓缓下落
-            rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+            float elapsedTime = Time.time - jumpStartTime;
 
-        }
-        if (rb.velocity.x != 0)
-        {
-            float decelerationAmount = Mathf.Abs(rb.velocity.x) * decelerationRate * Time.fixedDeltaTime;
-
-            if (rb.velocity.x > 0)
+            // 如果跳跃持续时间未结束，则应用缓动效果
+            if (rb.velocity.y > 0)
             {
-                rb.velocity = new Vector2(Mathf.Max(0, rb.velocity.x - decelerationAmount), rb.velocity.y);
+                float velocityModifier = Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+                rb.velocity += Vector2.up * velocityModifier;
             }
-            else if (rb.velocity.x < 0)
+            else if (rb.velocity.y < 0)
             {
-                rb.velocity = new Vector2(Mathf.Min(0, rb.velocity.x + decelerationAmount), rb.velocity.y);
+                // 跳跃上升结束，下落进行减速，缓缓下落
+                rb.velocity += Vector2.up * Physics2D.gravity.y * FallMultiplier * Time.fixedDeltaTime;//给向下的力加速下落
+
+            }
+            if (rb.velocity.x != 0)
+            {
+                float decelerationAmount = Mathf.Abs(rb.velocity.x) * decelerationRate * Time.fixedDeltaTime;
+
+                if (rb.velocity.x > 0)
+                {
+                    rb.velocity = new Vector2(Mathf.Max(0, rb.velocity.x - decelerationAmount), rb.velocity.y);
+                }
+                else if (rb.velocity.x < 0)
+                {
+                    rb.velocity = new Vector2(Mathf.Min(0, rb.velocity.x + decelerationAmount), rb.velocity.y);
+                }
+            }
+
+            // 设置一个阈值，当速度小于这个阈值时直接将其设置为0
+            float speedThreshold = 0.01f; // 你可以根据需要调整这个值
+            if (Mathf.Abs(rb.velocity.x) < speedThreshold)
+            {
+                rb.velocity = new Vector2(0, rb.velocity.y);
             }
         }
-
-        // 设置一个阈值，当速度小于这个阈值时直接将其设置为0
-        float speedThreshold = 0.01f; // 你可以根据需要调整这个值
-        if (Mathf.Abs(rb.velocity.x) < speedThreshold)
-        {
-            rb.velocity = new Vector2(0, rb.velocity.y);
-        }
+        
     }
     private void RotateNeedle()
     {

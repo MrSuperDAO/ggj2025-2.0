@@ -29,10 +29,10 @@ public class Exitslevel1 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             ExsitAudio.Instance.ExsitAudios();
-            Debug.Log("ÏÂÒ»¹Ø");
-            GameObject gamePopupObjiect = GameObject.Find("ÓÎÏ·½çÃæUI");
+            Debug.Log("ï¿½ï¿½Ò»ï¿½ï¿½");
+            GameObject gamePopupObjiect = GameObject.Find("ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½UI");
             GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
-            gamePopup.OpenLevelEndMenuUI();
+            gamePopup.OpenGameVictoryMenuUI();
             switch (stars)
             {
                 case 0: zeroStars.SetActive(true); break;
