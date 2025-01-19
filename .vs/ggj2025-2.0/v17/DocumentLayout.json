@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|e:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\player\\rotatetowardsmouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\player\\rotatetowardsmouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\player\\rotatetowardsmouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|e:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\player\\animationeventmediator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\player\\animationeventmediator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|e:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\audio\\exsitaudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\audio\\exsitaudio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\score\\datacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\ui_script\\scenechange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|e:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\ui_script\\gamepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\ui_script\\gamepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\ui_script\\gamepopup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,7 +23,7 @@
       "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\score\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|e:\\unity\\\u9879\u76EE\\ggj2025-2.0\\assets\\scprits\\score\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CBBBB8F1-4E7E-1A8B-2632-CCA5E33AF484}|Assembly-CSharp.csproj|solutionrelative:assets\\scprits\\score\\scoremanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -118,94 +110,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AnimationEventMediator.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\AnimationEventMediator.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\player\\AnimationEventMediator.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\AnimationEventMediator.cs",
-              "RelativeToolTip": "Assets\\Scprits\\player\\AnimationEventMediator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T06:29:44.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ExsitAudio.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\ExsitAudio.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\Audio\\ExsitAudio.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\ExsitAudio.cs",
-              "RelativeToolTip": "Assets\\Scprits\\Audio\\ExsitAudio.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T06:29:36.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "StarInteract.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\StarInteract.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\Score\\StarInteract.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\StarInteract.cs",
-              "RelativeToolTip": "Assets\\Scprits\\Score\\StarInteract.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T03:46:04.499Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UImanager.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI\\UImanager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\UI\\UImanager.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI\\UImanager.cs",
-              "RelativeToolTip": "Assets\\Scprits\\UI\\UImanager.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAywCsAAABJAAAAAAAAAA==",
+              "Title": "DieAuido.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\DieAuido.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\Audio\\DieAuido.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\DieAuido.cs",
+              "RelativeToolTip": "Assets\\Scprits\\Audio\\DieAuido.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T03:04:54.129Z"
+              "WhenOpened": "2025-01-19T05:10:21.525Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SceneChange.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\SceneChange.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\UI_Script\\SceneChange.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\SceneChange.cs",
-              "RelativeToolTip": "Assets\\Scprits\\UI_Script\\SceneChange.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T03:06:34.095Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DataController.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\DataController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\Score\\DataController.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\DataController.cs",
-              "RelativeToolTip": "Assets\\Scprits\\Score\\DataController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T15:29:42.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RotateTowardsMouse.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\RotateTowardsMouse.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\player\\RotateTowardsMouse.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\RotateTowardsMouse.cs",
-              "RelativeToolTip": "Assets\\Scprits\\player\\RotateTowardsMouse.cs",
-              "ViewState": "AgIAABMBAAAAAAAAAAAiwCABAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T03:02:33.504Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 12,
               "Title": "Exitslevel1.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\interaction\\Exitslevel1.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\interaction\\Exitslevel1.cs",
@@ -217,18 +133,71 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DieAuido.cs",
-              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\DieAuido.cs",
-              "RelativeDocumentMoniker": "Assets\\Scprits\\Audio\\DieAuido.cs",
-              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\DieAuido.cs",
-              "RelativeToolTip": "Assets\\Scprits\\Audio\\DieAuido.cs",
+              "DocumentIndex": 11,
+              "Title": "StarInteract.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\StarInteract.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\Score\\StarInteract.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\StarInteract.cs",
+              "RelativeToolTip": "Assets\\Scprits\\Score\\StarInteract.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T05:10:21.525Z"
+              "WhenOpened": "2025-01-18T03:46:04.499Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
+              "Title": "UImanager.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI\\UImanager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\UI\\UImanager.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI\\UImanager.cs",
+              "RelativeToolTip": "Assets\\Scprits\\UI\\UImanager.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAywCsAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T03:04:54.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SceneChange.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\SceneChange.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\UI_Script\\SceneChange.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\SceneChange.cs",
+              "RelativeToolTip": "Assets\\Scprits\\UI_Script\\SceneChange.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T03:06:34.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataController.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\DataController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\Score\\DataController.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\DataController.cs",
+              "RelativeToolTip": "Assets\\Scprits\\Score\\DataController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T15:29:42.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RotateTowardsMouse.cs",
+              "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\RotateTowardsMouse.cs",
+              "RelativeDocumentMoniker": "Assets\\Scprits\\player\\RotateTowardsMouse.cs",
+              "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\RotateTowardsMouse.cs",
+              "RelativeToolTip": "Assets\\Scprits\\player\\RotateTowardsMouse.cs",
+              "ViewState": "AgIAAOYAAAAAAAAAAAAAAOYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-18T03:02:33.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "GameOverColliton.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\interaction\\GameOverColliton.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\interaction\\GameOverColliton.cs",
@@ -240,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "ButtonAudio.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\ButtonAudio.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\Audio\\ButtonAudio.cs",
@@ -252,7 +221,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "jump.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\jump.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\player\\jump.cs",
@@ -264,7 +233,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 10,
               "Title": "DontDestory.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\DontDestory.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\DontDestory.cs",
@@ -276,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 13,
               "Title": "Dwon.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\\u7535\u68AF\u6CE1\u6CE1\\Dwon.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\\u7535\u68AF\u6CE1\u6CE1\\Dwon.cs",
@@ -288,7 +257,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 22,
               "Title": "AudioManager.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Audio\\AudioManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\Audio\\AudioManager.cs",
@@ -300,7 +269,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 14,
               "Title": "BubbleTypeComponent.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\BubbleTypeComponent.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\player\\BubbleTypeComponent.cs",
@@ -312,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 15,
               "Title": "BubbleTypes.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\player\\BubbleTypes.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\player\\BubbleTypes.cs",
@@ -324,7 +293,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 16,
               "Title": "Menu.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Menu\\Menu.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\Menu\\Menu.cs",
@@ -336,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 21,
               "Title": "UP.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\\u7535\u68AF\u6CE1\u6CE1\\UP.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\\u7535\u68AF\u6CE1\u6CE1\\UP.cs",
@@ -348,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 18,
               "Title": "UIBehaviour.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\UIBehaviour.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\EventSystem\\UIBehaviour.cs",
@@ -360,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 17,
               "Title": "Graphic.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\Graphic.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\Graphic.cs",
@@ -372,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 19,
               "Title": "Exitslevel2.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\interaction\\Exitslevel2.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\interaction\\Exitslevel2.cs",
@@ -384,7 +353,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 20,
               "Title": "Exitslevel3.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\interaction\\Exitslevel3.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\interaction\\Exitslevel3.cs",
@@ -402,7 +371,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "ScoreManager.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\Score\\ScoreManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\Score\\ScoreManager.cs",
@@ -410,17 +379,18 @@
               "RelativeToolTip": "Assets\\Scprits\\Score\\ScoreManager.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-18T06:48:55.847Z"
+              "WhenOpened": "2025-01-18T06:48:55.847Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "GamePopup.cs",
               "DocumentMoniker": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\GamePopup.cs",
               "RelativeDocumentMoniker": "Assets\\Scprits\\UI_Script\\GamePopup.cs",
               "ToolTip": "E:\\unity\\\u9879\u76EE\\ggj2025-2.0\\Assets\\Scprits\\UI_Script\\GamePopup.cs",
               "RelativeToolTip": "Assets\\Scprits\\UI_Script\\GamePopup.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA1wB8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-18T15:31:28.092Z",
               "EditorCaption": ""
