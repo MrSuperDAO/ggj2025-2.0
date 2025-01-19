@@ -17,15 +17,16 @@ public class ScoreManager : MonoBehaviour
     // 更新分数
     private void Update()
     {
-        //UpdateScoreText();
+        UpdateScoreText();
     }
 
     // 更新UI中的分数显示
     private void UpdateScoreText()
     {
         
-        scoreText.text = "死亡数: " + DataController.Instance.dides;
-        timeText.text = "时间: " + DataController.Instance.time;
+
+        scoreText.text = "坠落次数： " + DataController.Instance.dides;
+        timeText.text = "完成时间: " + DataController.Instance.time + "秒" ;
     }
     public void DideAdd()
     {

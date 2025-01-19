@@ -11,7 +11,7 @@ public class GamePopup : MonoBehaviour
     public bool isGamePaused = false;
     public GameObject pauseMenuUI; // 暂停菜单的UI
     public GameObject deadMenuUI; // 死亡菜单的UI
-    public GameObject levelEndMenuUI; // 关底菜单的UI
+    //public GameObject levelEndMenuUI; // 关底菜单的UI
     public GameObject gameVictoryMenuUI; // 游戏通关的UI
 
     void Update()
@@ -71,60 +71,16 @@ public class GamePopup : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// 死亡弹窗
-    /// </summary>
-
-    public void OpenDeadMenuUI()//死亡时调用，弹出重试弹窗
-    {
-        //StartCoroutine(LoadCoroutine(SceneManager.GetActiveScene().name));
-        //黑屏渐入
-        
-        //deadMenuUI.SetActive(true); // 显示重试弹窗
-    }
-
-    public void RetryButton()//死亡时弹窗里点击重试
-    {
-    }
 
 
     /// <summary>
-    /// 下一关弹窗
-    /// </summary>
-    /// 
-
-    public void OpenLevelEndMenuUI()//到达关底区域时触发调用，弹出下一关确认弹窗
-    {
-        Time.timeScale = 0; // 停止游戏时间
-        isGamePaused = true; // 设置游戏为暂停状态
-        levelEndMenuUI.SetActive(true); // 显示下一关弹窗
-    }
-
-    public void NextLevelButton()//关底时弹窗里点击下一关
-    {
-        if (SceneManager.GetActiveScene().name == "level 1")
-        {
-            StartCoroutine(LoadCoroutine("level 2"));
-        }
-        else if (SceneManager.GetActiveScene().name == "level 2")
-        {
-            StartCoroutine(LoadCoroutine("level 3"));
-        }
-        else if (SceneManager.GetActiveScene().name == "level 3")
-        {
-            StartCoroutine(LoadCoroutine("level 4"));
-        }
-
-    }
-
-    /// <summary>
-    /// 下一关弹窗
+    /// 结算弹窗
     /// </summary>
     /// 
 
     public void OpenGameVictoryMenuUI()//最后一关通关时调用，进入游戏结尾画面
     {
-        gameVictoryMenuUI.SetActive(true); // 显示下一关弹窗
+        StartCoroutine(GameEnd());
     }
 
     public void BackMainMenuButton()
@@ -203,5 +159,24 @@ public class GamePopup : MonoBehaviour
     public void setPlayerPosition()
     {
         Player.transform.position = rotateTowardsMouse.lastSaveArea.transform.position;
+    }
+
+    [SerializeField] public Image whiteImage;
+    Color whitecolor;
+    public IEnumerator GameEnd()
+    {
+        whitecolor = whiteImage.color;
+        whiteImage.gameObject.SetActive(true);//开启白屏过场图片
+        rotateTowardsMouse.canmove = false;
+        Player.GetComponent<Rigidbody2D>().gravityScale = 0;
+        
+        while (whitecolor.a < 1f)//白屏渐入
+        {
+            Time.timeScale = 1f;
+            whitecolor.a = Mathf.Clamp01(whitecolor.a + Time.unscaledDeltaTime / fadeTime);
+            whiteImage.color = whitecolor;
+            yield return null;
+        }
+        gameVictoryMenuUI.SetActive(true);
     }
 }

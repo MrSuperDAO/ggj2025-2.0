@@ -5,8 +5,8 @@ using UnityEngine.UI;
 public class DataController : MonoBehaviour
 {
     public static DataController Instance { get; private set; }
-    public int time;
-    public int dides;
+    public int time = 0;
+    public int dides = 0;
     void Awake()
     {
         if (Instance == null)
@@ -19,9 +19,14 @@ public class DataController : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+    public RotateTowardsMouse rotateTowardsMouse = null;
     private void Update()
     {
-        Timming();
+        if(rotateTowardsMouse.canmove)
+        {
+            Timming();
+        }
+        
     }
     
     private float elapsedTime = 0.0f; 
