@@ -132,7 +132,7 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void CheckPunctureBubble()
     {
-        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.3f); // 使用小半径检测针尖是否接触泡泡
+        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.2f); // 使用小半径检测针尖是否接触泡泡
         if (collider != null)
         {
             currentBubble = collider.gameObject;
@@ -183,23 +183,18 @@ public class RotateTowardsMouse : MonoBehaviour
         }
         else{ return; }
 
-        PlayParticles(currentBubble);
-        puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
-        /*        if (!respawn)
-                {
-                    Destroy(currentBubble);
-                }
-                else
-                {
-                    //isBubblePunctured = true;
-                    bubblePunctureTime = Time.time;
-                    currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
-                    puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
-                }*/
-
-
-
-
+        if (!respawn)//判断是否为一次性
+        {
+            Destroy(currentBubble);
+        }
+        else
+        {
+            isBubblePunctured = true;
+            bubblePunctureTime = Time.time;
+            currentBubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
+            puncturedBubbles[currentBubble] = Time.time;//将泡泡添加到字典中
+        }
+        
 
         //currentBubble = null; // 重置当前泡泡（可能不需要，出问题可以看看一这里）
         // 设置跳跃状态为true，并记录跳跃开始时间
@@ -237,47 +232,43 @@ public class RotateTowardsMouse : MonoBehaviour
     private void LateUpdate()
     {
         // 遍历被戳破的泡泡字典
-        if(puncturedBubbles.Count > 0)
+        foreach (var bubble in puncturedBubbles.ToArray())
         {
-            foreach (var bubble in puncturedBubbles.ToArray())
+            if (Time.time - bubble.Value > bubbleRespawnTime)
             {
-                if (Time.time - bubble.Value > bubbleRespawnTime)
+                // 根据泡泡类型加载预设体
+                GameObject bubblePrefab = null;
+                string prefabName=null;//这里添加预制体路径，根据我们文件的预制体文件夹来找
+                string bubbleLayerName = LayerMask.LayerToName(bubble.Key.layer);
+                switch (bubbleLayerName)
                 {
-                    // 根据泡泡类型加载预设体
-                    GameObject bubblePrefab = null;
-                    string prefabName = null;//这里添加预制体路径，根据我们文件的预制体文件夹来找
-                    string bubbleLayerName = LayerMask.LayerToName(bubble.Key.layer);
-                    switch (bubbleLayerName)
-                    {
-                        case "NormalBubble":
-                            prefabName = "NormalBubblePrefab";//预制体的命名必须和引号内相同
-                            bubblePrefab = NormalBubblePrefab;
-                            break;
-                        case "StrongBubble":
-                            prefabName = "StrongBubblePrefab";
-                            bubblePrefab = StrongBubblePrefab;
-                            break;
-                        //添加其他的泡泡类型
-                        default:
-                            Debug.LogError("未知的泡泡类型: " + bubbleLayerName);
-                            continue;
-                    }
-                    //bubblePrefab = Resources.Load<GameObject>(prefabPath);
-                    if (bubblePrefab != null)
-                    {
-                        Instantiate(bubblePrefab, bubble.Key.transform.position, Quaternion.identity);
-                    }
-                    else
-                    {
-                        Debug.LogError("无法加载泡泡预设体: " + prefabName);
-                    }
-
-                    // 从字典中移除已处理的泡泡
-                    puncturedBubbles.Remove(bubble.Key);
+                    case "NormalBubble":
+                        prefabName= "NormalBubblePrefab";//预制体的命名必须和引号内相同
+                        bubblePrefab = NormalBubblePrefab;
+                        break;
+                    case "StrongBubble":
+                        prefabName= "StrongBubblePrefab";
+                        bubblePrefab = StrongBubblePrefab;
+                        break;
+                    //添加其他的泡泡类型
+                    default:
+                        Debug.LogError("未知的泡泡类型: " + bubbleLayerName);
+                        continue;
                 }
+                //bubblePrefab = Resources.Load<GameObject>(prefabPath);
+                if (bubblePrefab != null)
+                {
+                    Instantiate(bubblePrefab, bubble.Key.transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.LogError("无法加载泡泡预设体: " + prefabName);
+                }
+
+                // 从字典中移除已处理的泡泡
+                puncturedBubbles.Remove(bubble.Key);
             }
         }
-        
     }
 
     // 用于存储最近离开的存档点
@@ -296,47 +287,4 @@ public class RotateTowardsMouse : MonoBehaviour
             lastSaveArea = other.gameObject;
         }
     }
-
-    private Animator animator;
-    private ParticleSystem particleSystem; // 引用粒子系统组件
-    public void PlayParticles(GameObject Bubble)//戳泡泡时调用
-    {
-        //播放泡泡破裂动画，并在销毁最后一帧
-        animator = Bubble.GetComponent<Animator>();
-        animator.SetTrigger("burst");
-        Bubble.transform.Find("GameObject").gameObject.SetActive(true);
-        Transform particleSystemTransform = Bubble.transform.Find("GameObject"); 
-        if (particleSystemTransform != null)
-        {
-            particleSystem = particleSystemTransform.GetComponent<ParticleSystem>();
-            Vector2 direction = (Bubble.transform.position - transform.position).normalized;
-
-            particleSystemTransform.forward = direction;
-
-            // 播放粒子系统
-            particleSystem.Play();
-        }
-
-    }
-    public void StopParticles(GameObject Bubble)//在泡泡破裂最后一帧调用
-    {
-        ParticleSystem ps = Bubble.transform.Find("GameObject").GetComponent<ParticleSystem>();
-        if (ps != null && ps.isPlaying)
-        {
-            ps.Stop();
-            Bubble.transform.Find("GameObject").gameObject.SetActive(false);
-        }
-        if (LayerMask.LayerToName(Bubble.layer) == "NonRespawnBubble")
-        {
-            Destroy(Bubble);
-        }
-        else
-        {
-            //isBubblePunctured = true;
-            //bubblePunctureTime = Time.time;
-            Bubble.SetActive(false); // 暂时禁用泡泡，以便在LateUpdate中重生
-            
-        }
-    }
-
 }
