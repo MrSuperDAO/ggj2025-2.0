@@ -56,5 +56,58 @@ public class SceneChange : MonoBehaviour
         transitionImage.gameObject.SetActive(false);//关闭黑屏过场图片
         Destroy(this);
     }
+    public GameObject Image01;
+    public GameObject Image02;
+    public GameObject Image03;
+    public GameObject Image04;
+
+    public void showPic()
+    {
+        if(Image01.activeSelf == false && Image02.activeSelf == false && Image03.activeSelf == false && Image04.activeSelf == false)
+        {
+            StartCoroutine(loadPic(Image01));
+        }
+        else if(Image01.activeSelf == true && Image02.activeSelf == false && Image03.activeSelf == false && Image04.activeSelf == false)
+        {
+            StartCoroutine(loadPic(Image02));
+        }
+        else if (Image01.activeSelf == true && Image02.activeSelf == true && Image03.activeSelf == false && Image04.activeSelf == false)
+        {
+            StartCoroutine(loadPic(Image03));
+        }
+        else if (Image01.activeSelf == true && Image02.activeSelf == true && Image03.activeSelf == true && Image04.activeSelf == false)
+        {
+            StartCoroutine(loadPic(Image04));
+        }
+        else if (Image01.activeSelf == true && Image02.activeSelf == true && Image03.activeSelf == true && Image04.activeSelf == true)
+        {
+            StopAllCoroutines();
+            LoadLvel1();
+            
+        }
+
+        
+    }
+    
+
+    public IEnumerator loadPic(GameObject pic)
+    {
+        pic.SetActive(true);
+        Color piccolor = pic.GetComponent<Image>().color;
+        while (piccolor.a < 1f)//如果加载完毕且完全黑屏，黑屏淡出
+        {
+            if (color.a >= 0.95f)
+            {
+                yield return null;
+                //屏蔽操作
+                //PlayerControl1.cantInput = false;
+            }
+            Time.timeScale = 1f;
+            piccolor.a += Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
+            pic.GetComponent<Image>().color = piccolor;
+            Debug.Log(piccolor.a);
+            yield return null;
+        }
+    }
 
 }
