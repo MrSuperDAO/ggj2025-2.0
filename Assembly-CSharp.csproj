@@ -74,7 +74,6 @@
     <Compile Include="Assets\Scprits\interaction\GameOverColliton.cs" />
     <Compile Include="Assets\Scprits\player\BubbleTypes.cs" />
     <Compile Include="Assets\Scprits\Score\DataController.cs" />
-    <Compile Include="Assets\Scprits\player\AnimationEventMediator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
