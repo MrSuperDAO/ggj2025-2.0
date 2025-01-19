@@ -42,6 +42,11 @@ public class RotateTowardsMouse : MonoBehaviour
     //添加数据字典存放被戳破的泡泡
     private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
     #endregion
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         anim = GetComponent<Animator>();
