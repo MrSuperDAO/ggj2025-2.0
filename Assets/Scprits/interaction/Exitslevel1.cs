@@ -30,10 +30,10 @@ public class Exitslevel1 : MonoBehaviour
             GameObject gamePopupObjiect = GameObject.Find("”Œœ∑ΩÁ√ÊUI");
             GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
             gamePopup.OpenLevelEndMenuUI();
+            ExsitAudio.Instance.ExsitAudios();
             switch (stars)
             {
                 case 0: zeroStars.SetActive(true); break;
-
                 case 1: oneStars.SetActive(true); break;
                 case 2: twoStars.SetActive(true); break;
                 case 3: threeStars.SetActive(true); break;

@@ -31,6 +31,7 @@ public class GameOverColliton : MonoBehaviour
         {
             StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
             score.DideAdd();
+            DieAudio.Instance.DieAudios();
             Debug.Log("失败重新再来");
             //gamePopup.PauseGame();
         }
