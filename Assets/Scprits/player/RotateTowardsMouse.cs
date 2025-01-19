@@ -139,6 +139,11 @@ public class RotateTowardsMouse : MonoBehaviour
             if (!isBubblePunctured)
             {
                 //添加游戏效果（提示接触到泡泡或者指针变色），也可以忽略
+                if (Input.GetMouseButtonDown(0))
+                {
+                    currentBubble.GetComponent<Animator>();
+                    //currentBubble.gameObject.SetActive(false);
+                }
             }
         }
         else
@@ -159,6 +164,7 @@ public class RotateTowardsMouse : MonoBehaviour
         if (LayerMask.LayerToName(currentBubble.layer) == "NormalBubble")
         {
             // 常规泡泡
+
         }
         else if (LayerMask.LayerToName(currentBubble.layer) == "StrongBubble")
         {

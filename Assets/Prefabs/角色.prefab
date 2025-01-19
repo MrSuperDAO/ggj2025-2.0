@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869043334083521550}
   m_LocalRotation: {x: -0, y: -0, z: -0.7081595, w: 0.70605254}
-  m_LocalPosition: {x: -1.24, y: 0.024, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.9223, y: 0.0104, z: 0}
+  m_LocalScale: {x: 0.7184, y: 0.5556, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2869043335037069681}
@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 2869043335037069680}
   - component: {fileID: 2869043335037069687}
   - component: {fileID: 2869043335037069686}
+  - component: {fileID: 2869043334638048349}
   m_Layer: 0
   m_Name: "\u89D2\u8272"
   m_TagString: Player
@@ -111,7 +112,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2869043335037069683}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.31, y: 3.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -167,7 +168,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.45, y: 1.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -226,7 +227,7 @@ MonoBehaviour:
   isJumping: 0
   isFalling: 0
   lowJumpMultiplier: 0.5
-  jumpDuration: 2
+  jumpDuration: 0.1
   FallMultiplier: 1.01
   decelerationRate: 0.5
   moveSpeed: 5000
@@ -253,7 +254,27 @@ MonoBehaviour:
   jumpBufferTimer: 0
   jumpBuffer: 15
   GroundCollider: {fileID: 4247331868826921869}
-  lastSaveArea: {fileID: 7070443233968836688, guid: 159b9e060242fda4ba04b391c68e9e2f, type: 3}
+  lastSaveArea: {fileID: 0}
+--- !u!95 &2869043334638048349
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2869043335037069683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a7ac4de40776d346bd437dd1171e292, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4247331868826921869
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,9 +321,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.14587778, y: 0.07002127}
+  m_Offset: {x: -0.0984633, y: 0.07002127}
   serializedVersion: 2
-  m_Radius: 0.67500263
+  m_Radius: 0.7479317
 --- !u!114 &4575442985589327100
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,12 +8,10 @@ using UnityEngine.UI;
 public class SceneChange : MonoBehaviour
 {
     public GameObject chooseLevelUI;
-
-
     public void OpenChooseLevelUI()
     {
-        chooseLevelUI.SetActive(true);
-    }
+        chooseLevelUI.SetActive(true);  
+}
 
     public void CloseChooseLevelUI()
     {
