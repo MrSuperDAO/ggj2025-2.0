@@ -234,6 +234,8 @@ MonoBehaviour:
   needleRadius: 1.25
   jumpForce: 10
   bubbleRespawnTime: 1
+  currentBubble: {fileID: 0}
+  isBubblePunctured: 0
   bubbleLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -251,6 +253,7 @@ MonoBehaviour:
     m_Bits: 512
   NormalBubblePrefab: {fileID: 6420504171724657910, guid: 295668702ecbc464fb6d499bbff7168c, type: 3}
   StrongBubblePrefab: {fileID: 5195466883025422852, guid: cd5534dbd586b5043b851b17590e005e, type: 3}
+  canmove: 1
   jumpBufferTimer: 0
   jumpBuffer: 15
   GroundCollider: {fileID: 4247331868826921869}
@@ -321,9 +324,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0984633, y: 0.07002127}
+  m_Offset: {x: -0.12201166, y: 0.07002127}
   serializedVersion: 2
-  m_Radius: 0.7479317
+  m_Radius: 0.9127679
 --- !u!114 &4575442985589327100
 MonoBehaviour:
   m_ObjectHideFlags: 0

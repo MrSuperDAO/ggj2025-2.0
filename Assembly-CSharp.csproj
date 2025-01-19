@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scprits\电梯泡泡\Dwon.cs" />
     <Compile Include="Assets\Scprits\Score\StarInteract.cs" />
     <Compile Include="Assets\Scprits\UI\UImanager.cs" />
+    <Compile Include="Assets\Scprits\Audio\StarAudio.cs" />
     <Compile Include="Assets\Scprits\Audio\DieAudio.cs" />
     <Compile Include="Assets\Scprits\Menu\Menu.cs" />
     <Compile Include="Assets\Scprits\DontDestory.cs" />
@@ -72,11 +73,10 @@
     <Compile Include="Assets\Scprits\player\RotateTowardsMouse.cs" />
     <Compile Include="Assets\Scprits\interaction\Exitslevel1.cs" />
     <Compile Include="Assets\Scprits\UI_Script\SceneChange.cs" />
+    <Compile Include="Assets\Scprits\Audio\AudioManager.cs" />
     <Compile Include="Assets\Scprits\interaction\GameOverColliton.cs" />
     <Compile Include="Assets\Scprits\player\BubbleTypes.cs" />
     <Compile Include="Assets\Scprits\Score\DataController.cs" />
-    <Compile Include="Assets\Scprits\Audio\AudioManager.cs" />
-    <Compile Include="Assets\Scprits\Audio\StarAudio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

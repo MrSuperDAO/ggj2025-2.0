@@ -21,8 +21,8 @@ public class RotateTowardsMouse : MonoBehaviour
     public float jumpForce;//设置跳跃力度
     public float bubbleRespawnTime = 3f; // 泡泡重生时间
     private Transform needle; // 针的Transform组件
-    private GameObject currentBubble; // 当前被针接触的泡泡
-    private bool isBubblePunctured = false; // 标记泡泡是否被戳破
+    public GameObject currentBubble; // 当前被针接触的泡泡
+    public bool isBubblePunctured = false; // 标记泡泡是否被戳破
     private float bubblePunctureTime; // 记录戳破泡泡的时间
 
     [Header("泡泡类型")]
@@ -141,8 +141,13 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private void CheckPunctureBubble()
     {
-        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.3f); // 使用小半径检测针尖是否接触泡泡
-        if (collider != null)
+        Collider2D collider = Physics2D.OverlapCircle(needle.position, 0.35f); // 使用小半径检测针尖是否接触泡泡
+        if (collider.gameObject != null &&
+            (LayerMask.LayerToName(collider.gameObject.layer) == "NormalBubble"
+            || LayerMask.LayerToName(collider.gameObject.layer) == "StrongBubble"
+            || LayerMask.LayerToName(collider.gameObject.layer) == "NonRespawnBubble"
+            || LayerMask.LayerToName(collider.gameObject.layer) == "PushableBubble")
+            )
         {
             currentBubble = collider.gameObject;
             if (!isBubblePunctured)
@@ -158,6 +163,7 @@ public class RotateTowardsMouse : MonoBehaviour
         else
         {
             currentBubble = null;
+            Debug.Log("null");
         }
     }
 
@@ -228,13 +234,15 @@ public class RotateTowardsMouse : MonoBehaviour
             jumpBufferTimer = jumpBuffer;
             if (jumpBufferTimer > 0)
             {
+                rb.velocity = new Vector2(0, 0);
+                Vector2 jumpDirection = (needle.position - transform.position).normalized;
+                Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
+                                                                       // 应用跳跃冲力
+                rb.AddForce(-JumpForce, ForceMode2D.Impulse);
                 if (GroundCollider.GetComponent<jump>().OnGround)//倒计时结束前如果
                 {
-                    rb.velocity = new Vector2(0,0);
-                    Vector2 jumpDirection = (needle.position - transform.position).normalized;
-                    Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
-                                                                           // 应用跳跃冲力
-                    rb.AddForce(-JumpForce, ForceMode2D.Impulse);
+                    
+                    
                     jumpBufferTimer = 0;//如果跳跃了，则把倒计时归零，等待下一次按下空格
                 }
                 jumpBufferTimer--;//如果没有跳跃，则一直倒计时直至结束或者按下跳跃键
