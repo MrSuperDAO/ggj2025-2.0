@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scprits\Menu\Menu.cs" />
     <Compile Include="Assets\Scprits\DontDestory.cs" />
     <Compile Include="Assets\Scprits\player\jump.cs" />
+    <Compile Include="Assets\Scprits\player\AnimationEventMediator.cs" />
     <Compile Include="Assets\Scprits\UI_Script\GamePopup.cs" />
     <Compile Include="Assets\Scprits\Score\ScoreManager.cs" />
     <Compile Include="Assets\Scprits\player\BubbleTypeComponent.cs" />
