@@ -25,13 +25,13 @@ public class GameOverColliton : MonoBehaviour
         GameObject scoreObject = GameObject.Find("ScoreManager");
         ScoreManager score = scoreObject.GetComponent<ScoreManager>();//�����ScoreManager
 
-        GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
-        GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
+       // GameObject gamePopupObjiect = GameObject.Find("游戏界面UI");
+        //GamePopup gamePopup = gamePopupObjiect.GetComponent<GamePopup>();
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(UI.GetComponent<GamePopup>().TransitionInCoroutine());
             score.DideAdd();
-            //Debug.Log("失败重新再来");
+            Debug.Log("失败重新再来");
             //gamePopup.PauseGame();
         }
         //retryButton.SetActive(true);

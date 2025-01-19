@@ -173,10 +173,11 @@ public class GamePopup : MonoBehaviour
             }
         }
         setPlayerPosition();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         StartCoroutine(TransitionOutCoroutine());
        
         DataController.Instance.dides += 1; ; 
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
         Debug.Log("死亡次数" + DataController.Instance.dides);
     }
 
@@ -201,6 +202,6 @@ public class GamePopup : MonoBehaviour
 
     public void setPlayerPosition()
     {
-        //Player.transform.position = rotateTowardsMouse.lastSaveArea.transform.position;
+        Player.transform.position = rotateTowardsMouse.lastSaveArea.transform.position;
     }
 }

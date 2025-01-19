@@ -11,20 +11,20 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-      
+     
     }
 
     // 更新分数
     private void Update()
     {
-        UpdateScoreText();
+        //UpdateScoreText();
     }
 
     // 更新UI中的分数显示
     private void UpdateScoreText()
     {
         Debug.Log(DataController.Instance.time);
-        scoreText.text = "死亡数: " + DataController.Instance.dides;
+       scoreText.text = "死亡数: " + DataController.Instance.dides;
         timeText.text = "时间: " + DataController.Instance.time;
     }
     public void DideAdd()
