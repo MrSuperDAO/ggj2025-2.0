@@ -71,37 +71,10 @@ public class GamePopup : MonoBehaviour
 
     }
 
-    /// <summary>
-    /// 死亡弹窗
-    /// </summary>
-
-    public void OpenDeadMenuUI()//死亡时调用，弹出重试弹窗
-    {
-        //StartCoroutine(LoadCoroutine(SceneManager.GetActiveScene().name));
-        //黑屏渐入
-        
-        //deadMenuUI.SetActive(true); // 显示重试弹窗
-    }
-
-    public void RetryButton()//死亡时弹窗里点击重试
-    {
-    }
 
 
     /// <summary>
-    /// 下一关弹窗
-    /// </summary>
-    /// 
-
-
-
-    public void NextLevelButton()//关底时弹窗里点击下一关
-    {
-
-    }
-
-    /// <summary>
-    /// 下一关弹窗
+    /// 结算弹窗
     /// </summary>
     /// 
 
@@ -189,19 +162,21 @@ public class GamePopup : MonoBehaviour
     }
 
     [SerializeField] public Image whiteImage;
+    Color whitecolor;
     public IEnumerator GameEnd()
     {
+        whitecolor = whiteImage.color;
         whiteImage.gameObject.SetActive(true);//开启白屏过场图片
         rotateTowardsMouse.canmove = false;
         Player.GetComponent<Rigidbody2D>().gravityScale = 0;
         
-        while (color.a < 1f)//白屏渐入
+        while (whitecolor.a < 1f)//白屏渐入
         {
             Time.timeScale = 1f;
-            color.a = Mathf.Clamp01(color.a + Time.unscaledDeltaTime / fadeTime);
-            whiteImage.color = color;
+            whitecolor.a = Mathf.Clamp01(whitecolor.a + Time.unscaledDeltaTime / fadeTime);
+            whiteImage.color = whitecolor;
             yield return null;
         }
-        //gameVictoryMenuUI.SetActive(true);
+        gameVictoryMenuUI.SetActive(true);
     }
 }
