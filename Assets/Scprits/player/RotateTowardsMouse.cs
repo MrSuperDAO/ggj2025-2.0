@@ -299,8 +299,12 @@ public class RotateTowardsMouse : MonoBehaviour
 
     private Animator animator;
     private ParticleSystem particleSystem; // 引用粒子系统组件
+    private AudioSource audioSource;//获取音频组件 
     public void PlayParticles(GameObject Bubble)//戳泡泡时调用
     {
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();//播放音频
         //播放泡泡破裂动画，并在销毁最后一帧
         animator = Bubble.GetComponent<Animator>();
         animator.SetTrigger("burst");
