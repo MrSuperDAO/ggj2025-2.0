@@ -42,12 +42,8 @@ public class RotateTowardsMouse : MonoBehaviour
     //添加数据字典存放被戳破的泡泡
     private Dictionary<GameObject, float> puncturedBubbles = new Dictionary<GameObject, float>();
     #endregion
-
-    private AudioSource audioSource;//获取音频组件
-   
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         needle = transform.Find("针"); // 查找针
@@ -157,7 +153,6 @@ public class RotateTowardsMouse : MonoBehaviour
     }
 
     float jumpForceMagnitude ; // 默认跳跃力
-    
     private void PunctureBubble()
     {
 
@@ -226,7 +221,6 @@ public class RotateTowardsMouse : MonoBehaviour
             {
                 if (GroundCollider.GetComponent<jump>().OnGround)//倒计时结束前如果
                 {
-                    audioSource.Play();
                     rb.velocity = new Vector2(0,0);
                     Vector2 jumpDirection = (needle.position - transform.position).normalized;
                     Vector2 JumpForce = jumpDirection * jumpForceMagnitude;//加一个小写的jumpForce是方便在页面修改
